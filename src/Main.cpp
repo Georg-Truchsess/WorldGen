@@ -23,6 +23,7 @@ int main(int argc, char* argv[])
         SDL_Quit();
     }
 
+    SDL_Renderer* rend = SDL_CreateRenderer(window, -1,SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
 
     bool IsRunning = true;
 
@@ -31,6 +32,8 @@ int main(int argc, char* argv[])
 
     while(IsRunning)
     {
+        SDL_RenderClear(rend);
+        SDL_RenderPresent(rend);
         while(SDL_PollEvent(&event) != 0)
         {
             if(event.type == SDL_QUIT)
