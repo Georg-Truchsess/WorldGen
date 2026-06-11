@@ -1,4 +1,9 @@
+//custom headers
+
+//std libraries
 #include<iostream>
+
+//3rd party libraries
 #include<SDL2/SDL.h>
 #include<SDL2/SDL_image.h>
 
@@ -28,6 +33,10 @@ int main(int argc, char* argv[])
 
     SDL_Texture* AsciiTable = SDL_CreateTextureFromSurface(rend, surface);
 
+    
+
+    
+
     SDL_FreeSurface(surface);
     bool IsRunning = true;
 
@@ -36,7 +45,11 @@ int main(int argc, char* argv[])
 
     while(IsRunning)
     {
+        SDL_SetRenderDrawColor(rend, 0, 0, 0,255);
         SDL_RenderClear(rend);
+        SDL_Rect rect = {500, 500, 100, 100};
+
+    SDL_RenderCopy(rend, AsciiTable, NULL, &rect);
         SDL_RenderPresent(rend);
         while(SDL_PollEvent(&event) != 0)
         {
