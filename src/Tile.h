@@ -7,7 +7,7 @@
 #include<SDL2/SDL.h>
 
 
-struct Tile
+struct TileMap
 {
 std::vector<uint8_t> TileID{};
 std::vector<uint8_t> TileHeight {};

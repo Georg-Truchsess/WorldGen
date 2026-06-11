@@ -49,7 +49,7 @@ int main(int argc, char* argv[])
         SDL_RenderClear(rend);
         SDL_Rect rect = {100, 100, 10, 10};
 
-    SDL_RenderCopy(rend, AsciiTable, NULL, &rect);
+    SDL_RenderCopy(rend, AsciiTable, &rect, NULL);
         SDL_RenderPresent(rend);
         while(SDL_PollEvent(&event) != 0)
         {
