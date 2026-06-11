@@ -1,6 +1,6 @@
 #include<iostream>
 #include<SDL2/SDL.h>
-
+#include<SDL2/SDL_image.h>
 
 const int SCREEN_WIDTH = 1000;
  const int SCREEN_HEIGHT = 1000;  
@@ -24,7 +24,11 @@ int main(int argc, char* argv[])
 
     SDL_Renderer* rend = SDL_CreateRenderer(window, -1,SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
 
-    
+    SDL_Surface* surface = IMG_Load("/home/WorldGen/437.png");
+
+    SDL_Texture* AsciiTable = SDL_CreateTextureFromSurface(rend, surface);
+
+    SDL_FreeSurface(surface);
     bool IsRunning = true;
 
     SDL_Event event;
@@ -44,6 +48,8 @@ int main(int argc, char* argv[])
     }
 
     SDL_DestroyWindow(window);
+    SDL_DestroyRenderer(rend);
+    SDL_DestroyTexture(AsciiTable);
     SDL_Quit();
 
     return 0;
