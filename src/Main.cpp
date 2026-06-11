@@ -2,7 +2,6 @@
 #include<SDL2/SDL.h>
 
 
-
 const int SCREEN_WIDTH = 1000;
  const int SCREEN_HEIGHT = 1000;  
 
@@ -25,6 +24,7 @@ int main(int argc, char* argv[])
 
     SDL_Renderer* rend = SDL_CreateRenderer(window, -1,SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
 
+    
     bool IsRunning = true;
 
     SDL_Event event;

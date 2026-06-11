@@ -1,15 +1,17 @@
 #include<SDL2/SDL.h>
 #include<vector>
 #include "Tile.h"
+#include<string>
 
 
 struct Tile
 {
     int Width;
     int Height;
-std::vector<uint32_t> TileID {};
-std::vector<uint32_t> TileHeight {};
-std::vector<uint32_t> TileType{};
+std::vector<uint> TileID {};
+std::vector<int> TileHeight {};
+std::vector<uint> WaterExposure {};
+std::vector<std::string> TileType{};
 
 
 
