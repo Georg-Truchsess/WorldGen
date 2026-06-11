@@ -45,9 +45,9 @@ int main(int argc, char* argv[])
 
     while(IsRunning)
     {
-        SDL_SetRenderDrawColor(rend, 0, 0, 0,255);
+        SDL_SetRenderDrawColor(rend, 225, 0, 225,255);
         SDL_RenderClear(rend);
-        SDL_Rect rect = {500, 500, 100, 100};
+        SDL_Rect rect = {100, 100, 10, 10};
 
     SDL_RenderCopy(rend, AsciiTable, NULL, &rect);
         SDL_RenderPresent(rend);

@@ -9,9 +9,9 @@
 
 struct Tile
 {
-std::vector<int> TileID{};
-std::vector<int> TileHeight {};
-std::vector<uint> WaterExposure {};
+std::vector<uint8_t> TileID{};
+std::vector<uint8_t> TileHeight {};
+std::vector<uint8_t> WaterExposure {};
 std::vector<std::string> TileType{};
 
 
