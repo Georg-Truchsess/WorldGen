@@ -14,14 +14,7 @@ const int SCREEN_WIDTH = 1000;
 int main(int argc, char* argv[])
 {
 
-    int t = 10;
-    TileMap map;
-
-    map.GenerateID(t);
-    for(const auto& item : map.TileID)
-    {
-        std::cout << item << std::endl;
-    }
+   
 
     
 
