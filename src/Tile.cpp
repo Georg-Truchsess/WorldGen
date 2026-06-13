@@ -4,22 +4,22 @@
 #include<string>
 
 
-struct TileMap
-{
-    int Width;
-    int Height;
-std::vector<uint8_t> TileID {};
-std::vector<uint8_t> TileHeight {};
-std::vector<uint8_t> WaterExposure {};
-std::vector<std::string> TileType{};
 
-void GenerateID(int Tiles)
+
+void TileMap::GenerateID(int Tiles)
 {
 for(int i = 0; i <= Tiles; i++)
 {
+    if(i < Tiles - 1)
+    {
+    TileID.insert(TileID.begin() + i,i + 1);
+    }
+    else
+    {
+        TileID.insert(TileID.begin() + i, i);
+    }
 
 }
 }
 
 
-};

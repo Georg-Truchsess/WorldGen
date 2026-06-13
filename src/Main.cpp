@@ -1,4 +1,5 @@
 //custom headers
+#include"Tile.h"
 
 //std libraries
 #include<iostream>
@@ -12,6 +13,18 @@ const int SCREEN_WIDTH = 1000;
 
 int main(int argc, char* argv[])
 {
+
+    int t = 10;
+    TileMap map;
+
+    map.GenerateID(t);
+    for(const auto& item : map.TileID)
+    {
+        std::cout << item << std::endl;
+    }
+
+    
+
     if(SDL_Init(SDL_INIT_VIDEO) < 0)
     {
         std::cout << " SDL could not initialize, error:" << SDL_GetError;

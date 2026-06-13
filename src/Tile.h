@@ -1,6 +1,5 @@
-#ifndef TILE_H
-#define TILE_H
 
+#pragma once
 
 #include<vector>
 #include<string>
@@ -9,11 +8,17 @@
 
 struct TileMap
 {
-std::vector<uint8_t> TileID{};
+    int Width;
+    int Height;
+std::vector<uint16_t> TileID{};
 std::vector<uint8_t> TileHeight {};
 std::vector<uint8_t> WaterExposure {};
 std::vector<std::string> TileType{};
 
+void GenerateID(int Tiles);
+
+
+
 
 };
-#endif
+
