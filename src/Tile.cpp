@@ -8,6 +8,7 @@
 
 void TileMap::GenerateID(int Tiles)
 {
+    TileID.reserve(Tiles);
 for(int i = 0; i <= Tiles; i++)
 {
     if(i < Tiles - 1)
@@ -20,6 +21,8 @@ for(int i = 0; i <= Tiles; i++)
     }
 
 }
+
+
 }
 
 
