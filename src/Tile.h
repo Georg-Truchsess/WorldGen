@@ -5,7 +5,7 @@
 #include<string>
 #include<SDL2/SDL.h>
 
-
+// struct used to store data for individual tiles
 struct TileMap
 {
     int Width;

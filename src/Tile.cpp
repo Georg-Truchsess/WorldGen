@@ -5,7 +5,7 @@
 
 
 
-
+// used to give every tile a unique numeric ID to be used as a reference
 void TileMap::GenerateID(int Tiles)
 {
     TileID.reserve(Tiles);
