@@ -11,14 +11,7 @@ void TileMap::GenerateID(int Tiles)
     TileID.reserve(Tiles);
 for(int i = 0; i <= Tiles; i++)
 {
-    if(i < Tiles - 1)
-    {
-    TileID.insert(TileID.begin() + i,i + 1);
-    }
-    else
-    {
-        TileID.insert(TileID.begin() + i, i);
-    }
+    TileID.push_back(i);
 
 }
 
