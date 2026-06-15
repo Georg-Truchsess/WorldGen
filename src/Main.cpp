@@ -8,14 +8,14 @@
 #include<SDL2/SDL.h>
 #include<SDL2/SDL_image.h>
 
-const int SCREEN_WIDTH = 1000;
+const int SCREEN_WIDTH = 1900;
  const int SCREEN_HEIGHT = 1000;  
 
 int main(int argc, char* argv[])
 {
 
    
-
+    
     
 
     if(SDL_Init(SDL_INIT_VIDEO) < 0)
@@ -35,7 +35,14 @@ int main(int argc, char* argv[])
 
     SDL_Renderer* rend = SDL_CreateRenderer(window, -1,SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
 
-    SDL_Surface* surface = IMG_Load("/home/WorldGen/437.png");
+    SDL_Surface* surface;
+
+    surface = IMG_Load("437.png");
+    if(!surface)
+    {
+        std::cout << "image has not loaded" << std::endl; 
+        IMG_GetError();
+    }
 
     SDL_Texture* AsciiTable = SDL_CreateTextureFromSurface(rend, surface);
 
@@ -51,9 +58,9 @@ int main(int argc, char* argv[])
 
     while(IsRunning)
     {
-        SDL_SetRenderDrawColor(rend, 225, 0, 225,255);
+        SDL_SetRenderDrawColor(rend, 0, 0, 0,255);
         SDL_RenderClear(rend);
-        SDL_Rect rect = {100, 100, 10, 10};
+        SDL_Rect rect = {0, 0, 10000, 10000};
 
     SDL_RenderCopy(rend, AsciiTable, &rect, NULL);
         SDL_RenderPresent(rend);
