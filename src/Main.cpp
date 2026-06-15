@@ -60,7 +60,7 @@ int main(int argc, char* argv[])
     {
         SDL_SetRenderDrawColor(rend, 0, 0, 0,255);
         SDL_RenderClear(rend);
-        SDL_Rect rect = {0, 0, 10000, 10000};
+        SDL_Rect rect = {10, 5, 20, 20};
 
     SDL_RenderCopy(rend, AsciiTable, &rect, NULL);
         SDL_RenderPresent(rend);
