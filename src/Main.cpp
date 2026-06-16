@@ -14,7 +14,19 @@ const int SCREEN_WIDTH = 1900;
 int main(int argc, char* argv[])
 {
 
-   
+   TileMap map;
+
+   map.GenerateTileCoordinates(40, 10, 4);
+
+   for(const auto& item : map.TilePosx)
+   {
+    std::cout << "x:" << static_cast<uint>(item) << std::endl;
+   }
+
+   for(const auto& item : map.TilePosy)
+   {
+    std::cout << "y:" << static_cast<uint>(item) << std::endl;
+   }
     
     
 
