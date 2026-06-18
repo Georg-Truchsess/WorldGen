@@ -31,9 +31,11 @@ void TileMap::GenerateTileCoordinates( uint16_t Tiles, uint16_t NumTilesX, uint1
 for(uint16_t i = 0; i < Tiles; i++)
 {
 
-if(counterx > (30 * NumTilesX))
+if(counterx >= (30 * NumTilesX))
 {
 counterx = 0;
+countery += 30;
+TilePosy.push_back(countery);
 }
 else
 {
@@ -42,13 +44,13 @@ else
 counterx += 30;
 TilePosx.push_back(counterx);
 
+
 }
 
-if(countery < (30 * NumTilesY))
-{
-    countery += 30;
-TilePosy.push_back(countery);
-}
+//if(countery < (30 * NumTilesY)){
+// countery += 30;
+//TilePosy.push_back(countery);
+//}
 }
 
 

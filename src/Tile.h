@@ -11,8 +11,8 @@ struct TileMap
     SDL_Rect Tile;
     
 std::vector<uint16_t> TileID{};
-std::vector<uint8_t> TilePosx{};
-std::vector<uint8_t> TilePosy{};
+std::vector<uint16_t> TilePosx{};
+std::vector<uint16_t> TilePosy{};
 std::vector<uint8_t> TileHeight {};
 std::vector<uint8_t> WaterExposure {};
 std::vector<std::string> TileType{};
