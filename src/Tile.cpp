@@ -35,7 +35,7 @@ if(counterx >= (30 * NumTilesX))
 {
 counterx = 0;
 countery += 30;
-TilePosy.push_back(countery);
+
 }
 else
 {
@@ -43,7 +43,7 @@ else
 
 counterx += 30;
 TilePosx.push_back(counterx);
-
+TilePosy.push_back(countery);
 
 }
 
