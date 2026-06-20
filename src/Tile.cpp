@@ -18,8 +18,8 @@ for(uint16_t i = 0; i < TileCount; i++)
 }
 }
 
-// Generates the actual tilemap and renders it to the screen
-void TileMap::GenerateTileCoordinates( uint16_t Tiles, uint16_t NumTilesX, uint16_t NumTilesY)
+// Generates the cooedinates for each tile before they render to the screen
+void TileMap::GenerateTileCoordinates( uint16_t Tiles, uint16_t NumTilesX)
 {
     TilePosx.clear();
     TilePosy.clear();
@@ -47,10 +47,7 @@ TilePosy.push_back(countery);
 
 }
 
-//if(countery < (30 * NumTilesY)){
-// countery += 30;
-//TilePosy.push_back(countery);
-//}
+
 }
 
 

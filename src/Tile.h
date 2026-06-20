@@ -24,7 +24,7 @@ uint16_t countery = 0;
 void GenerateID(uint16_t TileCount);
 
 
-void GenerateTileCoordinates( uint16_t Tiles, uint16_t NumTilesX, uint16_t NumTileY);
+void GenerateTileCoordinates( uint16_t Tiles, uint16_t NumTilesX);
 
 
 };

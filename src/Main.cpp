@@ -16,13 +16,14 @@ int main(int argc, char* argv[])
 
    TileMap map;
 
-   map.GenerateTileCoordinates(40, 4, 10);
+   map.GenerateTileCoordinates(40, 4);
 
    
 
-   for(const auto& item : map.TilePosx)
+   for(const auto& item : map.TilePosy)
    {
-    std::cout << "x:" << static_cast<uint>(item) << std::endl;
+    std::cout << "y:" << static_cast<uint>(item) << std::endl;
+    
    }
     
     
