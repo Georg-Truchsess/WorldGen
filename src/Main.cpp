@@ -20,13 +20,13 @@ int main(int argc, char* argv[])
 
    
 
-   for(const auto& item : map.TilePosy)
+   for(const auto& item : map.TilePosx)
    {
-    std::cout << "y:" << static_cast<uint>(item) << std::endl;
+    std::cout << "x:" << static_cast<uint>(item) << std::endl;
     
    }
     
-    
+    std::cout << map.TilePosy.size() << std::endl;
 
     if(SDL_Init(SDL_INIT_VIDEO) < 0)
     {
