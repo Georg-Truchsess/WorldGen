@@ -33,6 +33,7 @@ for(uint16_t i = 0; i < Tiles; i++)
 if(TilePosx.size() == 0)
 {
     TilePosx.push_back(counterx);
+    TilePosy.push_back(countery);
 }
 else if(counterx >= (30 * (NumTilesX - 1)))
 {
@@ -40,7 +41,7 @@ counterx = 0;
 countery += 30;
 
 TilePosx.push_back(counterx);
-
+TilePosy.push_back(countery);
 
 
 }

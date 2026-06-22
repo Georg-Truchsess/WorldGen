@@ -19,9 +19,9 @@ int main(int argc, char* argv[])
 
    
 
-   for(const auto& item : map.TilePosy)
+   for(const auto& item : map.TilePosx)
    {
-    std::cout << "y:" << static_cast<uint>(item) << std::endl;
+    std::cout << "x:" << static_cast<uint>(item) << std::endl;
     
    }
     
