@@ -34,12 +34,13 @@ if(TilePosx.size() == 0)
 {
     TilePosx.push_back(counterx);
 }
-else if(counterx >= (30 * NumTilesX))
+else if(counterx >= (30 * (NumTilesX - 1)))
 {
 counterx = 0;
 countery += 30;
 
 TilePosx.push_back(counterx);
+
 
 
 }
