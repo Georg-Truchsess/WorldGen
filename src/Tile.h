@@ -1,6 +1,7 @@
 
 #pragma once
 
+#include<random>
 #include<vector>
 #include<string>
 #include<SDL2/SDL.h>
@@ -26,6 +27,7 @@ void GenerateID(uint16_t TileCount);
 
 void GenerateTileCoordinates( uint16_t Tiles, uint16_t NumTilesX);
 
+void GenerateHeightMap(int8_t DisplacementValueMax, int8_t DisplacementValueMin);
 
 };
 

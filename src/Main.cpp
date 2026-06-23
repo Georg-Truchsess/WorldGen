@@ -15,7 +15,7 @@ int main(int argc, char* argv[])
 {
 
    TileMap map;
-   map.GenerateTileCoordinates(40, 4);
+   
 
    
 

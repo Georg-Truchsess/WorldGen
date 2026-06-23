@@ -2,7 +2,7 @@
 #include<vector>
 #include "Tile.h"
 #include<string>
-
+#include<random>
 
 
 // used to give every tile a unique numeric ID to be used as a reference
@@ -18,8 +18,9 @@ for(uint16_t i = 0; i < TileCount; i++)
 }
 }
 
-// Generates the cooedinates for each tile before they render to the screen
+// Generates the coordinates for each tile before they render to the screen
 void TileMap::GenerateTileCoordinates( uint16_t Tiles, uint16_t NumTilesX)
+
 {
     TilePosx.clear();
     TilePosy.clear();
@@ -63,5 +64,13 @@ TilePosy.push_back(countery);
 }
 
 
+void TileMap::GenerateHeightMap(int8_t DisplacementValueMax, int8_t DisplacementValueMin)
+{
+std::uniform_int_distribution<int8_t> rand(DisplacementValueMin, DisplacementValueMax);
+
+
+
+
+}
 
 
