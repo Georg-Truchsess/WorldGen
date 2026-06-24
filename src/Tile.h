@@ -29,5 +29,9 @@ void GenerateTileCoordinates( uint16_t Tiles, uint16_t NumTilesX);
 
 void GenerateHeightMap(int8_t DisplacementValueMax, int8_t DisplacementValueMin);
 
+void FindMidpoint();
+
+uint8_t Displace(uint8_t Corner1, uint8_t Corner2, uint8_t Corner3, uint8_t Corner4, uint8_t DisplacementValue, uint8_t Midpoint);
+
 };
 

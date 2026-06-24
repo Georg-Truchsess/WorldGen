@@ -73,4 +73,19 @@ std::uniform_int_distribution<int8_t> rand(DisplacementValueMin, DisplacementVal
 
 }
 
+void TileMap::FindMidpoint()
+{
 
+(TilePosx.back() + TilePosy.back()) / 2;
+
+
+}
+
+uint8_t TileMap::Displace(uint8_t Corner1, uint8_t Corner2, uint8_t Corner3, uint8_t Corner4, uint8_t DisplacementValue, uint8_t Midpoint)
+{
+
+Midpoint = ((Corner1 + Corner2 + Corner3 + Corner4)/4) + DisplacementValue;
+
+return Midpoint;
+
+}
