@@ -64,11 +64,15 @@ TilePosy.push_back(countery);
 }
 
 
-void TileMap::GenerateHeightMap(int8_t DisplacementValueMax, int8_t DisplacementValueMin)
+void TileMap::GenerateHeightMap(int8_t DisplacementValueMax, int8_t DisplacementValueMin, uint16_t Iterations)
 {
 std::uniform_int_distribution<int8_t> rand(DisplacementValueMin, DisplacementValueMax);
 
+for(uint16_t i = 0; i < Iterations; i++)
+{
 
+    
+}
 
 
 }

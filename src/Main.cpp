@@ -3,6 +3,7 @@
 
 //std libraries
 #include<iostream>
+#include<random>
 
 //3rd party libraries
 #include<SDL2/SDL.h>
@@ -14,18 +15,15 @@ const int SCREEN_WIDTH = 1900;
 int main(int argc, char* argv[])
 {
 
+    //RNG seeding
+    std::random_device rd;
+    std::mt19937 gen(rd());
+
+
+
+
    TileMap map;
    
-
-   
-
-   for(const auto& item : map.TilePosx)
-   {
-    std::cout << "x:" << static_cast<uint>(item) << std::endl;
-    
-   }
-    
-    std::cout << map.TilePosy.size() << std::endl;
 
     if(SDL_Init(SDL_INIT_VIDEO) < 0)
     {
