@@ -68,10 +68,17 @@ void TileMap::GenerateHeightMap(int8_t DisplacementValueMax, int8_t Displacement
 {
 std::uniform_int_distribution<int8_t> rand(DisplacementValueMin, DisplacementValueMax);
 
+uint16_t MidpointX;
+uint16_t MidpointY;
+
+FindMidpoint(2,MidpointX, MidpointY);
+
+//Displace(TileHeight[0]);
+
 for(uint16_t i = 0; i < Iterations; i++)
 {
 
-    
+
 }
 
 
