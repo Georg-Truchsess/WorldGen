@@ -64,16 +64,25 @@ TilePosy.push_back(countery);
 }
 
 
-void TileMap::GenerateHeightMap(int8_t DisplacementValueMax, int8_t DisplacementValueMin, uint16_t Iterations)
+void TileMap::GenerateHeightMap(int8_t DisplacementValueMax, int8_t DisplacementValueMin, uint16_t Iterations, uint16_t NumTilesX, uint16_t Tiles)
 {
 std::uniform_int_distribution<int8_t> rand(DisplacementValueMin, DisplacementValueMax);
 
 uint16_t MidpointX;
 uint16_t MidpointY;
+uint8_t InitialRoughness;
+for(uint16_t i = 0; i < Tiles; i++)
+{
+    TileHeight.push_back(0);
+
+}
+NumTilesX = Tiles/NumTilesX;
 
 FindMidpoint(2,MidpointX, MidpointY);
 
-//Displace(TileHeight[0]);
+
+
+Displace(TileHeight[0], TileHeight[NumTilesX], TileHeight[4], TileHeight[TileID.size()], rand(InitialRoughness) ,TileHeight[MidpointX]);
 
 for(uint16_t i = 0; i < Iterations; i++)
 {
