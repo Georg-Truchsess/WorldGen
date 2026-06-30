@@ -68,10 +68,12 @@ void TileMap::GenerateHeightMap(int8_t DisplacementValueMax, int8_t Displacement
 {
 std::uniform_int_distribution<int8_t> rand(DisplacementValueMin, DisplacementValueMax);
 
-uint16_t MidpointX;
-uint16_t MidpointY;
+uint16_t Index;
+// Used for initial iteration
 int8_t InitialRoughness = rand(Gen);
 
+// Used for remaining iterations
+int8_t Roughness  = rand(Gen);
 std::cout << static_cast<int>(InitialRoughness) << std::endl;
 for(uint16_t i = 0; i < TileID.size(); i++)
 {
@@ -89,6 +91,8 @@ for(uint16_t i = 0; i < Iterations; i++)
 {
 
     
+    //TileHeight[Index] = Displace( , , , , Roughness, )
+
 
 }
 
