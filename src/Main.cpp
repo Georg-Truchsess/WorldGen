@@ -24,6 +24,11 @@ int main(int argc, char* argv[])
 
    TileMap map;
    
+    map.GenerateID(289);
+
+    map.GenerateHeightMap(100, -100, 2, 17, gen);
+
+    std::cout << static_cast<int>(map.TileHeight[map.TileHeight.size()/2]) << std::endl;
 
     if(SDL_Init(SDL_INIT_VIDEO) < 0)
     {
