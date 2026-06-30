@@ -27,7 +27,7 @@ void GenerateID(uint16_t TileCount);
 
 void GenerateTileCoordinates( uint16_t Tiles, uint16_t NumTilesX);
 
-void GenerateHeightMap(int8_t DisplacementValueMax, int8_t DisplacementValueMin, uint16_t Iterations, uint16_t NumTilesX, uint16_t Tiles);
+void GenerateHeightMap(int8_t DisplacementValueMax, int8_t DisplacementValueMin, uint16_t Iterations, uint16_t NumTilesX);
 
 uint16_t FindMidpoint(uint16_t diviser, uint16_t MidpointX, uint16_t MidpointY);
 
