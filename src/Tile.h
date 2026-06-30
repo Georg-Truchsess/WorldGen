@@ -3,7 +3,7 @@
 
 #include<random>
 #include<vector>
-#include<string>
+#include<iostream>
 #include<SDL2/SDL.h>
 
 // struct used to store data for individual tiles

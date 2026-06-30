@@ -1,7 +1,7 @@
 #include<SDL2/SDL.h>
 #include<vector>
 #include "Tile.h"
-#include<string>
+#include<iostream>
 #include<random>
 
 
@@ -70,6 +70,9 @@ std::uniform_int_distribution<int8_t> rand(DisplacementValueMin, DisplacementVal
 
 uint16_t MidpointX;
 uint16_t MidpointY;
+int8_t InitialRoughness = rand(Gen);
+
+std::cout << static_cast<int>(InitialRoughness) << std::endl;
 for(uint16_t i = 0; i < TileID.size(); i++)
 {
     TileHeight.push_back(0);
@@ -80,13 +83,14 @@ for(uint16_t i = 0; i < TileID.size(); i++)
 
 
 
-Displace(TileHeight[0], TileHeight[NumTilesX], TileHeight[TileID.size()/NumTilesX], TileHeight[TileID.size()], rand(Gen) ,TileHeight[TileID.size()/2]);
+TileHeight[TileID.size()/2] = Displace(TileHeight[0], TileHeight[NumTilesX], TileHeight[TileID.size()/NumTilesX], TileHeight[TileID.size()], InitialRoughness ,TileHeight[TileID.size()/2]);
 
-//for(uint16_t i = 0; i < Iterations; i++)
-//{
+for(uint16_t i = 0; i < Iterations; i++)
+{
 
+    
 
-//}
+}
 
 
 }
