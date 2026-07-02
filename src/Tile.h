@@ -12,16 +12,17 @@ struct TileMap
 
 std::vector<std::string> TileType{};
 SDL_Rect Tile;
+int Width;
+int Height;
+uint16_t counterx = 0;
+uint16_t countery = 0;
 std::vector<uint16_t> TileID{};
 std::vector<uint16_t> TilePosx{};
 std::vector<uint16_t> TilePosy{};
 std::vector<uint8_t> TileHeight {};
 std::vector<uint8_t> WaterExposure {};
 
-int Width;
-int Height;
-uint16_t counterx = 0;
-uint16_t countery = 0;
+
 
 void GenerateID(uint16_t TileCount);
 

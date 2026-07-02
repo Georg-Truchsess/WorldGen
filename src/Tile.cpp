@@ -65,6 +65,7 @@ TilePosy.push_back(countery);
 
 void TileMap::GenerateHeightMap(int8_t DisplacementValueMax, int8_t DisplacementValueMin, uint16_t Iterations, uint16_t NumTilesX, std::mt19937 Gen)
 {
+    float scale = 1;
 std::uniform_int_distribution<int8_t> rand(DisplacementValueMin, DisplacementValueMax);
 
 uint16_t Index;
@@ -72,7 +73,7 @@ uint16_t Index;
 int8_t InitialRoughness = rand(Gen);
 
 // Used for remaining iterations
-int8_t Roughness  = rand(Gen);
+int8_t Roughness;
 for(uint16_t i = 0; i < TileID.size(); i++)
 {
     TileHeight.push_back(0);
@@ -81,10 +82,15 @@ for(uint16_t i = 0; i < TileID.size(); i++)
 
 TileHeight[TileID.size()/2] = Displace(TileHeight[0], TileHeight[NumTilesX], TileHeight[TileID.size()/NumTilesX], TileHeight[TileID.size()], InitialRoughness ,TileHeight[TileID.size()/2]);
 
-for(uint16_t i = 0; i < Iterations; i++)
+for(uint16_t i = 0; i < 4; i++)
 {
+Roughness = rand(Gen);
 
     //TileHeight[Index] = Displace( , , , , Roughness, )
+    for(uint16_t i = 0; i < Iterations; i++)
+    {
+        Roughness = std::ceil(rand(Gen) / scale);
+    }
 
 }
 
@@ -102,7 +108,7 @@ return MidpointX, MidpointY;
 
 }
 
-// Values for parameters are TileHeight
+// Values for parameters are TileHeight. Corners go in order of top left, top right, bottom left, bottom right
 uint8_t TileMap::Displace(uint8_t Corner1, uint8_t Corner2, uint8_t Corner3, uint8_t Corner4, uint8_t DisplacementValue, uint8_t Midpoint)
 {
 
