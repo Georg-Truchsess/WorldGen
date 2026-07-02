@@ -63,7 +63,6 @@ TilePosy.push_back(countery);
 
 }
 
-
 void TileMap::GenerateHeightMap(int8_t DisplacementValueMax, int8_t DisplacementValueMin, uint16_t Iterations, uint16_t NumTilesX, std::mt19937 Gen)
 {
 std::uniform_int_distribution<int8_t> rand(DisplacementValueMin, DisplacementValueMax);
@@ -74,28 +73,20 @@ int8_t InitialRoughness = rand(Gen);
 
 // Used for remaining iterations
 int8_t Roughness  = rand(Gen);
-std::cout << static_cast<int>(InitialRoughness) << std::endl;
 for(uint16_t i = 0; i < TileID.size(); i++)
 {
     TileHeight.push_back(0);
 
 }
 
-
-
-
-
 TileHeight[TileID.size()/2] = Displace(TileHeight[0], TileHeight[NumTilesX], TileHeight[TileID.size()/NumTilesX], TileHeight[TileID.size()], InitialRoughness ,TileHeight[TileID.size()/2]);
 
 for(uint16_t i = 0; i < Iterations; i++)
 {
 
-    
     //TileHeight[Index] = Displace( , , , , Roughness, )
 
-
 }
-
 
 }
 
