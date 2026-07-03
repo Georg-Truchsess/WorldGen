@@ -73,10 +73,10 @@ uint16_t Index;
 int8_t InitialRoughness = rand(Gen);
 
 
-uint16_t TopLeft;
-uint16_t TopRight;
-uint16_t BottomLeft;
-uint16_t BottomRight;
+uint16_t TopLeft = 0;
+uint16_t TopRight = std::ceil(NumTilesX/2);
+uint16_t BottomLeft = (TileID.size()/2) - (std::ceil((NumTilesX/2)) - 1);
+uint16_t BottomRight = TileID.size()/2;
 // Used for remaining iterations
 int8_t Roughness;
 for(uint16_t i = 0; i < TileID.size(); i++)
@@ -90,6 +90,14 @@ TileHeight[TileID.size()/2] = Displace(TileHeight[0], TileHeight[NumTilesX-1], T
 for(uint16_t i = 0; i < 4; i++)
 {
 Roughness = rand(Gen);
+
+switch (i)
+{
+    case 2: TopLeft = std::ceil(NumTilesX/2);  TopRight = NumTilesX-1; BottomLeft = TileID.size()/2; BottomRight = (TileID.size()/2) +((std::ceil(NumTilesX/2)) -1);
+    case 3: TopLeft = (TileID.size()/2) - (std::ceil((NumTilesX/2)) - 1); TopRight = TileID.size(); BottomLeft = NumTilesX * (NumTilesX-1) + 1; BottomRight = TileID.size();// TODO: fix bottom right
+    
+}
+
 
     
     TileHeight[Index] = Displace( TileHeight[TopLeft],TileHeight[TopRight],TileHeight[BottomLeft],TileHeight[BottomLeft], Roughness, TileHeight[Index]);
