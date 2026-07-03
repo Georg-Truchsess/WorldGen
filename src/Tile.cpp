@@ -89,6 +89,7 @@ Roughness = rand(Gen);
     //TileHeight[Index] = Displace( , , , , Roughness, )
     for(uint16_t i = 0; i < Iterations; i++)
     {
+        scale = (scale/2);
         Roughness = std::ceil(rand(Gen) / scale);
     }
 
