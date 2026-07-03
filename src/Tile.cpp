@@ -72,7 +72,7 @@ uint16_t Index;
 // Used for initial iteration
 int8_t InitialRoughness = rand(Gen);
 
-uint16_t Midpoint;
+
 uint16_t TopLeft;
 uint16_t TopRight;
 uint16_t BottomLeft;
@@ -92,7 +92,7 @@ for(uint16_t i = 0; i < 4; i++)
 Roughness = rand(Gen);
 
     
-    TileHeight[Index] = Displace( TileHeight[TopLeft],TileHeight[TopRight],TileHeight[BottomLeft],TileHeight[BottomLeft], Roughness, TileHeight[Midpoint]);
+    TileHeight[Index] = Displace( TileHeight[TopLeft],TileHeight[TopRight],TileHeight[BottomLeft],TileHeight[BottomLeft], Roughness, TileHeight[Index]);
     for(uint16_t i = 0; i < Iterations; i++)
     {
         scale = (scale/2);
