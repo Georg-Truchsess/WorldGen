@@ -23,8 +23,13 @@ int main(int argc, char* argv[])
 
 
    TileMap map;
-   
-    std::cout << std::ceil(17/2) << std::endl;
+   std::vector<int> vec;
+
+   for(int i = 0; i < 289; i++)
+   {
+    vec.push_back(i);
+   }
+    std::cout << vec[vec.size()-1] << std::endl;
     //std::cout << static_cast<int>(map.TileHeight[map.TileHeight.size()/2]) << std::endl;
 
     if(SDL_Init(SDL_INIT_VIDEO) < 0)

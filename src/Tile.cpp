@@ -85,7 +85,7 @@ for(uint16_t i = 0; i < TileID.size(); i++)
 
 }
 
-TileHeight[TileID.size()/2] = Displace(TileHeight[0], TileHeight[NumTilesX-1], TileHeight[NumTilesX * (NumTilesX-1) + 1], TileHeight[TileID.size()], InitialRoughness ,TileHeight[TileID.size()/2]);
+TileHeight[TileID.size()/2] = Displace(TileHeight[0], TileHeight[NumTilesX-1], TileHeight[NumTilesX * (NumTilesX-1) + 1], TileHeight[TileID.size()-1], InitialRoughness ,TileHeight[TileID.size()/2]);
 
 for(uint16_t i = 0; i < 4; i++)
 {
@@ -94,8 +94,8 @@ Roughness = rand(Gen);
 switch (i)
 {
     case 2: TopLeft = std::ceil(NumTilesX/2);  TopRight = NumTilesX-1; BottomLeft = TileID.size()/2; BottomRight = (TileID.size()/2) +((std::ceil(NumTilesX/2)) -1);
-    case 3: TopLeft = (TileID.size()/2) - (std::ceil((NumTilesX/2)) - 1); TopRight = TileID.size(); BottomLeft = NumTilesX * (NumTilesX-1) + 1; BottomRight = (TileID.size()-1) - (std::floor(NumTilesX/2));
-    case 4: TopLeft = TileID.size()/2; TopRight = (TileID.size()/2) + (std::floor(NumTilesX/2)); BottomLeft = (TileID.size())-1 - (std::floor(NumTilesX/2)); BottomRight = TileID.size()-1;
+    case 3: TopLeft = (TileID.size()/2) - (std::ceil((NumTilesX/2)) - 1); TopRight = TileID.size()-1; BottomLeft = NumTilesX * (NumTilesX-1) + 1; BottomRight = (TileID.size()-1) - (std::floor(NumTilesX/2));
+    case 4: TopLeft = TileID.size()/2; TopRight = (TileID.size()/2) + (std::floor(NumTilesX/2)); BottomLeft = (TileID.size()-1) - (std::floor(NumTilesX/2)); BottomRight = TileID.size()-1;
 }
 
 
