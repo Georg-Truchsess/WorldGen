@@ -72,7 +72,6 @@ uint16_t Index;
 // Used for initial iteration
 int8_t InitialRoughness = rand(Gen);
 
-
 uint16_t TopLeft = 0;
 uint16_t TopRight = std::ceil(NumTilesX/2);
 uint16_t BottomLeft = (TileID.size()/2) - (std::ceil((NumTilesX/2)) - 1);
@@ -97,8 +96,6 @@ switch (i)
     case 3: TopLeft = (TileID.size()/2) - (std::ceil((NumTilesX/2)) - 1); TopRight = TileID.size()-1; BottomLeft = NumTilesX * (NumTilesX-1) + 1; BottomRight = (TileID.size()-1) - (std::floor(NumTilesX/2));
     case 4: TopLeft = TileID.size()/2; TopRight = (TileID.size()/2) + (std::floor(NumTilesX/2)); BottomLeft = (TileID.size()-1) - (std::floor(NumTilesX/2)); BottomRight = TileID.size()-1;
 }
-
-
     
     TileHeight[Index] = Displace( TileHeight[TopLeft],TileHeight[TopRight],TileHeight[BottomLeft],TileHeight[BottomLeft], Roughness, TileHeight[Index]);
     for(uint16_t i = 0; i < Iterations; i++)
@@ -106,16 +103,8 @@ switch (i)
         scale = (scale/2);
         Roughness = std::ceil(rand(Gen) / scale);
 
-        
-
-
     }
-
 }
-
-
-
-
 }
 
 uint16_t TileMap::FindMidpoint(uint16_t diviser, uint16_t MidpointX, uint16_t MidpointY)
