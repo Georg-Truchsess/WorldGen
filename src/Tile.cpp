@@ -94,8 +94,8 @@ Roughness = rand(Gen);
 switch (i)
 {
     case 2: TopLeft = std::ceil(NumTilesX/2);  TopRight = NumTilesX-1; BottomLeft = TileID.size()/2; BottomRight = (TileID.size()/2) +((std::ceil(NumTilesX/2)) -1);
-    case 3: TopLeft = (TileID.size()/2) - (std::ceil((NumTilesX/2)) - 1); TopRight = TileID.size(); BottomLeft = NumTilesX * (NumTilesX-1) + 1; BottomRight = TileID.size();// TODO: fix bottom right
-    
+    case 3: TopLeft = (TileID.size()/2) - (std::ceil((NumTilesX/2)) - 1); TopRight = TileID.size(); BottomLeft = NumTilesX * (NumTilesX-1) + 1; BottomRight = (TileID.size()-1) - (std::floor(NumTilesX/2));
+    case 4: TopLeft = TileID.size()/2; TopRight = (TileID.size()/2) + (std::floor(NumTilesX/2)); BottomLeft = (TileID.size())-1 - (std::floor(NumTilesX/2)); BottomRight = TileID.size()-1;
 }
 
 
