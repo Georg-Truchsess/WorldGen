@@ -27,7 +27,6 @@ void TileMap::GenerateTileCoordinates( uint16_t Tiles, uint16_t NumTilesX)
     TilePosx.reserve(Tiles);
     TilePosy.reserve(Tiles);
    
-    
     // Set x and y values for tile position
 for(uint16_t i = 0; i < Tiles; i++)
 {
@@ -43,13 +42,10 @@ countery += 30;
 
 TilePosx.push_back(counterx);
 TilePosy.push_back(countery);
-
-
 }
+
 else
 {
-
-
 counterx += 30;
 TilePosx.push_back(counterx);
 TilePosy.push_back(countery);
@@ -58,9 +54,6 @@ TilePosy.push_back(countery);
 
 
 }
-
-
-
 }
 
 void TileMap::GenerateHeightMap(int8_t DisplacementValueMax, int8_t DisplacementValueMin, uint16_t Iterations, uint16_t NumTilesX, std::mt19937 Gen)
@@ -78,6 +71,9 @@ uint16_t BottomLeft = (TileID.size()/2) - (std::ceil((NumTilesX/2)) - 1);
 uint16_t BottomRight = TileID.size()/2;
 // Used for remaining iterations
 int8_t Roughness;
+
+TileHeight.reserve(TileID.size());
+
 for(uint16_t i = 0; i < TileID.size(); i++)
 {
     TileHeight.push_back(0);
