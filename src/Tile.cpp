@@ -81,7 +81,7 @@ for(uint16_t i = 0; i < TileID.size(); i++)
 }
 
 TileHeight[TileID.size()/2] = Displace(TileHeight[0], TileHeight[NumTilesX-1], TileHeight[NumTilesX * (NumTilesX-1) + 1], TileHeight[TileID.size()-1], InitialRoughness ,TileHeight[TileID.size()/2]);
-
+Smooth(TileID.size()/2);
 for(uint16_t i = 0; i < 4; i++)
 {
 Roughness = rand(Gen);
@@ -122,10 +122,26 @@ return MidpointX, MidpointY;
 
 // Values for parameters are TileHeight. Corners go in order of top left, top right, bottom left, bottom right
 uint8_t TileMap::Displace(uint8_t Corner1, uint8_t Corner2, uint8_t Corner3, uint8_t Corner4, uint8_t DisplacementValue, uint8_t Midpoint)
+
 {
 
 Midpoint = ((Corner1 + Corner2 + Corner3 + Corner4)/4) + DisplacementValue;
 
 return Midpoint;
+
+}
+
+// Smoothed the height of other tiles around the midpoint after being displaced
+void TileMap::Smooth(uint16_t Midpoint)
+{
+    uint16_t range;
+    uint16_t distance;
+    uint16_t CurrentTile;
+    for(uint16_t i = 0; i < range; i++)
+    {
+
+        TileHeight[CurrentTile] = std::abs(TileHeight[CurrentTile] - TileHeight[Midpoint]);
+
+    }   
 
 }
