@@ -92,10 +92,10 @@ Roughness = rand(Gen);
 
 switch (i)
 {
-    case 1: TopLeft = 0; TopRight = NumTilesX/2; BottomLeft = (TileID.size()/2) - ((NumTilesX/2) - 1); BottomRight = TileID.size()/2;
-    case 2: TopLeft = NumTilesX/2;  TopRight = NumTilesX-1; BottomLeft = TileID.size()/2; BottomRight = (TileID.size()/2) +((NumTilesX/2) -1);
-    case 3: TopLeft = (TileID.size()/2) - ((NumTilesX/2) - 1); TopRight = TileID.size()-1; BottomLeft = NumTilesX * (NumTilesX-1) + 1; BottomRight = (TileID.size()-1) - (NumTilesX/2);
-    case 4: TopLeft = TileID.size()/2; TopRight = (TileID.size()/2) + (NumTilesX/2); BottomLeft = (TileID.size()-1) - (NumTilesX/2); BottomRight = TileID.size()-1;
+    case 0: TopLeft = 0; TopRight = NumTilesX/2; BottomLeft = (TileID.size()/2) - ((NumTilesX/2) - 1); BottomRight = TileID.size()/2;
+    case 1: TopLeft = NumTilesX/2;  TopRight = NumTilesX-1; BottomLeft = TileID.size()/2; BottomRight = (TileID.size()/2) +((NumTilesX/2) -1);
+    case 2: TopLeft = (TileID.size()/2) - ((NumTilesX/2) - 1); TopRight = TileID.size()-1; BottomLeft = NumTilesX * (NumTilesX-1) + 1; BottomRight = (TileID.size()-1) - (NumTilesX/2);
+    case 3: TopLeft = TileID.size()/2; TopRight = (TileID.size()/2) + (NumTilesX/2); BottomLeft = (TileID.size()-1) - (NumTilesX/2); BottomRight = TileID.size()-1;
 }
     
     TileHeight[Index] = Displace( TileHeight[TopLeft],TileHeight[TopRight],TileHeight[BottomLeft],TileHeight[BottomLeft], Roughness, TileHeight[Index]);
