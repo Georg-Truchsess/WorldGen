@@ -25,11 +25,9 @@ int main(int argc, char* argv[])
    TileMap map;
    std::vector<int> vec;
 
-   for(int i = 0; i < 289; i++)
-   {
-    vec.push_back(i);
-   }
-    std::cout << vec[vec.size()-1] << std::endl;
+   
+   
+    std::cout << 17/2 << std::endl;
     //std::cout << static_cast<int>(map.TileHeight[map.TileHeight.size()/2]) << std::endl;
 
     if(SDL_Init(SDL_INIT_VIDEO) < 0)
@@ -41,7 +39,7 @@ int main(int argc, char* argv[])
 
     SDL_Window*  window = SDL_CreateWindow("WorldGen", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
 
-    if(window== nullptr)
+    if(window == nullptr)
     {
         std::cout << "Window could not be created. Error:" << SDL_GetError;
         SDL_Quit();
