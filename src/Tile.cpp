@@ -131,21 +131,29 @@ return Midpoint;
 
 }
 
-// Smoothed the height of other tiles around the midpoint after being displaced
+// Smooths the height of other tiles around the midpoint after being displaced
 void TileMap::Smooth(uint16_t Midpoint)
 {
     uint16_t range;
     uint16_t distance;
     uint16_t CurrentTile;
 
-    float scale;
+    uint8_t scale = 1;
 
     for(uint16_t i = 0; i < range; i++)
     {
 
-        scale = (TileHeight[Midpoint]);
 
-        TileHeight[CurrentTile] = std::abs(TileHeight[CurrentTile] - std::ceil(TileHeight[Midpoint] * scale));
+        scale = distance/2;
+
+        if(TileHeight[CurrentTile] <= 0)
+        {
+        TileHeight[CurrentTile] = TileHeight[CurrentTile] - (TileHeight[Midpoint]/scale);
+        }
+        else
+        {
+            TileHeight[CurrentTile] = std::abs(TileHeight[CurrentTile] - (TileHeight[Midpoint]/scale));
+        }
 
     }   
 
