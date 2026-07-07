@@ -137,10 +137,13 @@ void TileMap::Smooth(uint16_t Midpoint)
     uint16_t range;
     uint16_t distance;
     uint16_t CurrentTile;
+
+    float scale;
+
     for(uint16_t i = 0; i < range; i++)
     {
 
-        TileHeight[CurrentTile] = std::abs(TileHeight[CurrentTile] - TileHeight[Midpoint]);
+        TileHeight[CurrentTile] = std::abs(TileHeight[CurrentTile] - std::ceil(TileHeight[Midpoint] * scale));
 
     }   
 
