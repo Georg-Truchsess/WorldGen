@@ -35,6 +35,8 @@ uint16_t FindMidpoint(uint16_t diviser, uint16_t MidpointX, uint16_t MidpointY);
 
 uint8_t Displace(uint8_t Corner1, uint8_t Corner2, uint8_t Corner3, uint8_t Corner4, uint8_t DisplacementValue, uint8_t Midpoint);
 
-void Smooth(uint16_t Midpoint);
+void Smooth(uint16_t Midpoint, uint16_t range, uint16_t TopLeft, uint16_t TopRight, uint16_t BottomLeft, uint16_t BottomRight);
+
+uint16_t TileMap::DetermineDistance(uint16_t Midpoint, uint16_t CurrentTile, uint16_t distance, uint16_t TopLeft, uint16_t TopRight, uint16_t BottomLeft, uint16_t BottomRight);
 };
 
