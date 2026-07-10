@@ -139,12 +139,16 @@ void TileMap::Smooth(uint16_t Midpoint, uint16_t TopLeft, uint16_t TopRight, uin
     uint16_t CurrentTile = TopLeft;
 
     uint8_t scale = 1;
-    uint16_t Change = 0;
-    uint16_t RelationToNumTilesX = 0;
+    uint8_t MaxDistance;
+    uint8_t Offset = 0;
+    MaxDistance = Midpoint/((TopRight-TopLeft)/2);
+    uint8_t OffsetIncrease = 1;
     for(uint16_t i = 0; i < range; i++)
     {
         
-        DetermineDistance(Midpoint, CurrentTile, distance, TopLeft, TopRight, BottomLeft, BottomRight);
+        
+        
+        distance = MaxDistance - Offset;
         scale = distance/2;
 
         if(TileHeight[CurrentTile] <= 0)
@@ -156,18 +160,34 @@ void TileMap::Smooth(uint16_t Midpoint, uint16_t TopLeft, uint16_t TopRight, uin
             TileHeight[CurrentTile] = std::abs(TileHeight[CurrentTile] - (TileHeight[Midpoint]/scale));
         }
 
-        
+        if(i/(TopRight-TopLeft) >= OffsetIncrease)
+        {
+            Offset++;
+            OffsetIncrease++;
+        }
         
     }   
 
 }
 
-uint16_t TileMap::DetermineDistance(uint16_t Midpoint, uint16_t CurrentTile, uint16_t distance, uint16_t TopLeft, uint16_t TopRight, uint16_t BottomLeft, uint16_t BottomRight)
-{
 
-
-
-    return distance;
-}
     
-    
+/*
+0, 0, 0, 0, 0, 0 ,0 ,0 ,0 ,0, 0, 0, 0, 0, 0 ,0 ,0
+0, 0, 0, 0, 0, 0 ,0 ,0 ,0 ,0, 0, 0, 0, 0, 0 ,0 ,0
+0, 0, 0, 0, 0, 0 ,0 ,0 ,0 ,0, 0, 0, 0, 0, 0 ,0 ,0
+0, 0, 0, 0, 0, 0 ,0 ,0 ,0 ,0, 0, 0, 0, 0, 0 ,0 ,0
+0, 0, 0, 0, 2, 0 ,0 ,0 ,0 ,0, 0, 0, 0, 0, 0 ,0 ,0
+0, 0, 0, 0, 0, 0 ,0 ,0 ,0 ,0, 0, 0, 0, 0, 0 ,0 ,0
+0, 0, 0, 0, 0, 0 ,0 ,0 ,0 ,0, 0, 0, 0, 0, 0 ,0 ,0
+0, 0, 0, 0, 0, 0 ,0 ,0 ,0 ,0, 0, 0, 0, 0, 0 ,0 ,0
+0, 0, 0, 0, 0, 0 ,0 ,0 ,1 ,0, 0, 0, 0, 0, 0 ,0 ,0
+0, 0, 0, 0, 0, 0 ,0 ,0 ,0 ,0, 0, 0, 0, 0, 0 ,0 ,0
+0, 0, 0, 0, 0, 0 ,0 ,0 ,0 ,0, 0, 0, 0, 0, 0 ,0 ,0
+0, 0, 0, 0, 0, 0 ,0 ,0 ,0 ,0, 0, 0, 0, 0, 0 ,0 ,0
+0, 0, 0, 0, 0, 0 ,0 ,0 ,0 ,0, 0, 0, 0, 0, 0 ,0 ,0
+0, 0, 0, 0, 0, 0 ,0 ,0 ,0 ,0, 0, 0, 0, 0, 0 ,0 ,0
+0, 0, 0, 0, 0, 0 ,0 ,0 ,0 ,0, 0, 0, 0, 0, 0 ,0 ,0
+0, 0, 0, 0, 0, 0 ,0 ,0 ,0 ,0, 0, 0, 0, 0, 0 ,0 ,0
+0, 0, 0, 0, 0, 0 ,0 ,0 ,0 ,0, 0, 0, 0, 0, 0 ,0 ,0
+*/

@@ -37,6 +37,6 @@ uint8_t Displace(uint8_t Corner1, uint8_t Corner2, uint8_t Corner3, uint8_t Corn
 
 void Smooth(uint16_t Midpoint, uint16_t TopLeft, uint16_t TopRight, uint16_t BottomLeft, uint16_t BottomRight, uint16_t NumTilesX);
 
-uint16_t DetermineDistance(uint16_t Midpoint, uint16_t CurrentTile, uint16_t distance, uint16_t TopLeft, uint16_t TopRight, uint16_t BottomLeft, uint16_t BottomRight);
+
 };
 
