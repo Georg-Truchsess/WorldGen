@@ -167,6 +167,7 @@ uint16_t TileMap::DetermineDistance(uint16_t Midpoint, uint16_t CurrentTile, uin
 
 
 
+    return distance;
 }
     
     
