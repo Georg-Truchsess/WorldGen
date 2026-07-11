@@ -23,8 +23,17 @@ int main(int argc, char* argv[])
 
 
    TileMap map;
-   std::vector<int> vec;
 
+  map.GenerateID(289);
+
+  map.GenerateTileCoordinates(289, 17);
+
+  map.GenerateHeightMap(100, -100, 0, 17, gen);
+
+for(const auto& item : map.TileHeight)
+{
+    std::cout<< static_cast<int>(item) << std::endl;
+}
    
    
     std::cout << 17/2 << std::endl;
