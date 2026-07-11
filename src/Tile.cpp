@@ -81,7 +81,7 @@ for(uint16_t i = 0; i < TileID.size(); i++)
 }
 
 TileHeight[TileID.size()/2] = Displace(TileHeight[0], TileHeight[NumTilesX-1], TileHeight[NumTilesX * (NumTilesX-1) + 1], TileHeight[TileID.size()-1], InitialRoughness ,TileHeight[TileID.size()/2]);
-Smooth(TileID.size()/2, TileHeight[0], TileHeight[NumTilesX-1], TileHeight[NumTilesX * (NumTilesX-1) + 1], TileHeight[TileID.size()-1], NumTilesX);
+Smooth(TileID.size()/2, TileHeight[0], TileHeight[NumTilesX-1], TileHeight[NumTilesX * (NumTilesX-1) + 1], TileHeight[TileID.size()-1]);
 for(uint16_t i = 0; i < 4; i++)
 {
 Roughness = rand(Gen);
@@ -132,7 +132,7 @@ return Midpoint;
 }
 
 // Smooths the height of other tiles around the midpoint after being displaced
-void TileMap::Smooth(uint16_t Midpoint, uint16_t TopLeft, uint16_t TopRight, uint16_t BottomLeft, uint16_t BottomRight, uint16_t NumTilesX)
+void TileMap::Smooth(uint16_t Midpoint, uint16_t TopLeft, uint16_t TopRight, uint16_t BottomLeft, uint16_t BottomRight)
 {
     uint16_t range = BottomRight-TopLeft;
     double distance;
@@ -145,7 +145,7 @@ void TileMap::Smooth(uint16_t Midpoint, uint16_t TopLeft, uint16_t TopRight, uin
         
         
         
-        distance = ((std::sqrt(TilePosx[CurrentTile]- TilePosy[Midpoint]) - std::sqrt(TilePosx[Midpoint] - TilePosy[CurrentTile]))/10);
+        distance =  (std::sqrt( (( TilePosx[CurrentTile]- TilePosy[Midpoint]) * ( TilePosx[CurrentTile]- TilePosy[Midpoint])) + ( (TilePosx[Midpoint] - TilePosy[CurrentTile] ) * (TilePosx[Midpoint] - TilePosy[CurrentTile] ) ) )/10);
         scale = static_cast<uint16_t>(distance)/2;
 
         if(TileHeight[CurrentTile] <= 0)
