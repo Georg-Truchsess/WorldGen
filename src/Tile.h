@@ -20,7 +20,7 @@ uint16_t countery = 0;
 std::vector<uint16_t> TileID{};
 std::vector<uint16_t> TilePosx{};
 std::vector<uint16_t> TilePosy{};
-std::vector<uint8_t> TileHeight {};
+std::vector<int8_t> TileHeight {};
 std::vector<uint8_t> WaterExposure {};
 
 
