@@ -5,6 +5,7 @@
 #include<vector>
 #include<iostream>
 #include<SDL2/SDL.h>
+#include<numeric>
 
 // struct used to store data for individual tiles
 struct TileMap

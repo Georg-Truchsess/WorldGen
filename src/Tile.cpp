@@ -3,7 +3,7 @@
 #include "Tile.h"
 #include<iostream>
 #include<random>
-
+#include<numeric>
 
 // used to give every tile a unique numeric ID to be used as a reference
 // Tiles cannot and should not be added after initialization
@@ -135,21 +135,18 @@ return Midpoint;
 void TileMap::Smooth(uint16_t Midpoint, uint16_t TopLeft, uint16_t TopRight, uint16_t BottomLeft, uint16_t BottomRight, uint16_t NumTilesX)
 {
     uint16_t range = BottomRight-TopLeft;
-    uint16_t distance;
+    double distance;
     uint16_t CurrentTile = TopLeft;
 
     uint8_t scale = 1;
-    uint8_t MaxDistance;
-    uint8_t Offset = 0;
-    MaxDistance = Midpoint/((TopRight-TopLeft)/2);
-    uint8_t OffsetIncrease = 1;
+    
     for(uint16_t i = 0; i < range; i++)
     {
         
         
         
-        distance = MaxDistance - Offset;
-        scale = distance/2;
+        distance = ((std::sqrt(TilePosx[CurrentTile]- TilePosy[Midpoint]) - std::sqrt(TilePosx[Midpoint] - TilePosy[CurrentTile]))/10);
+        scale = static_cast<uint16_t>(distance)/2;
 
         if(TileHeight[CurrentTile] <= 0)
         {
@@ -160,11 +157,7 @@ void TileMap::Smooth(uint16_t Midpoint, uint16_t TopLeft, uint16_t TopRight, uin
             TileHeight[CurrentTile] = std::abs(TileHeight[CurrentTile] - (TileHeight[Midpoint]/scale));
         }
 
-        if(i/(TopRight-TopLeft) >= OffsetIncrease)
-        {
-            Offset++;
-            OffsetIncrease++;
-        }
+        
         
     }   
 
