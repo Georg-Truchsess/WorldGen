@@ -81,7 +81,7 @@ for(uint16_t i = 0; i < TileID.size(); i++)
 }
 
 TileHeight[TileID.size()/2] = Displace(TileHeight[0], TileHeight[NumTilesX-1], TileHeight[NumTilesX * (NumTilesX-1) + 1], TileHeight[TileID.size()-1], InitialRoughness ,TileHeight[TileID.size()/2]);
-Smooth(TileID.size()/2, TileHeight[0], TileHeight[NumTilesX-1], TileHeight[NumTilesX * (NumTilesX-1) + 1], TileHeight[TileID.size()-1]);
+Smooth(TileID.size()/2, 0, NumTilesX-1, NumTilesX * (NumTilesX-1) + 1, TileID.size());
 /*for(uint16_t i = 0; i < 4; i++)
 {
 Roughness = rand(Gen);
@@ -134,11 +134,9 @@ return Midpoint;
 void TileMap::Smooth(uint16_t Midpoint, uint16_t TopLeft, uint16_t TopRight, uint16_t BottomLeft, uint16_t BottomRight)
 {
     uint16_t range = BottomRight-TopLeft;
-    double distance;
     uint16_t CurrentTile = TopLeft;
-
+    double distance;
     uint8_t scale = 1;
-    //std::cout << range << std::endl;
     for(uint16_t i = 0; i < range; i++)
     {
         
@@ -146,15 +144,11 @@ void TileMap::Smooth(uint16_t Midpoint, uint16_t TopLeft, uint16_t TopRight, uin
         
         distance =  (std::sqrt( (( TilePosx[CurrentTile]- TilePosx[Midpoint]) * ( TilePosx[CurrentTile]- TilePosx[Midpoint])) + ( (TilePosy[Midpoint] - TilePosy[CurrentTile] ) * (TilePosy[Midpoint] - TilePosy[CurrentTile] ) ) )/30);
         scale = static_cast<int16_t>(distance)/2;
-
-        if(TileHeight[CurrentTile] < 0)
-        {
-        TileHeight[CurrentTile] = TileHeight[CurrentTile] - (TileHeight[Midpoint]/scale);
-        }
-        if(TileHeight[CurrentTile] >= 0)
-        {
-            TileHeight[CurrentTile] = std::abs(TileHeight[CurrentTile] - (TileHeight[Midpoint]/scale));
-        }
+        
+            if(scale != 0)
+            {
+            TileHeight[CurrentTile] = std::abs(TileHeight[CurrentTile] + (TileHeight[Midpoint]/scale));
+            }
 
         CurrentTile++;
         //std::cout << static_cast<int>(distance) << std::endl;
