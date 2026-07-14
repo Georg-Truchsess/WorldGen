@@ -33,7 +33,7 @@ int main(int argc, char* argv[])
   int it = 0;
 for(const auto& item : map.TileHeight)
 {
-    std::cout<< static_cast<int>(item);
+    std::cout<< static_cast<int>(item) << std::endl;
 }
    
    
