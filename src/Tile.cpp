@@ -3,7 +3,7 @@
 #include "Tile.h"
 #include<iostream>
 #include<random>
-#include<numeric>
+
 
 // used to give every tile a unique numeric ID to be used as a reference
 // Tiles cannot and should not be added after initialization
@@ -146,11 +146,11 @@ void TileMap::Smooth(uint16_t Midpoint, uint16_t TopLeft, uint16_t TopRight, uin
         distance =  (std::sqrt( (( TilePosx[CurrentTile]- TilePosx[Midpoint]) * ( TilePosx[CurrentTile]- TilePosx[Midpoint])) + ( (TilePosy[Midpoint] - TilePosy[CurrentTile] ) * (TilePosy[Midpoint] - TilePosy[CurrentTile] ) ) )/30);
         scale = static_cast<int16_t>(distance)/2;
         
-            if(scale != 0)
+            if(scale > 0)
             {
             TileHeight[CurrentTile] = TileHeight[CurrentTile] + (TileHeight[Midpoint]/scale);
             }
-            else if(scale <= 0)
+            else
             {
                 scale = 1;
                 TileHeight[CurrentTile] = TileHeight[CurrentTile] + (TileHeight[Midpoint]/scale);
@@ -160,9 +160,13 @@ void TileMap::Smooth(uint16_t Midpoint, uint16_t TopLeft, uint16_t TopRight, uin
         
     }   
 
+    
 }
 
-
+void TileMap::DrawMap(SDL_Texture* ASCII, SDL_Renderer* render)
+    {
+        
+    }
     
 /*
 0, 0, 0, 0, 0, 0 ,0 ,0 ,0 ,0, 0, 0, 0, 0, 0 ,0 ,0
