@@ -15,6 +15,8 @@ std::vector<std::string> TileType{};
 SDL_Rect Tile;
 int Width;
 int Height;
+int AtlasArrayx [20] = {};
+int AtlasArrayy [20] = {};
 uint16_t counterx = 0;
 uint16_t countery = 0;
 std::vector<uint16_t> TileID{};
@@ -38,7 +40,7 @@ uint8_t Displace(uint8_t Corner1, uint8_t Corner2, uint8_t Corner3, uint8_t Corn
 
 void Smooth(uint16_t Midpoint, uint16_t TopLeft, uint16_t TopRight, uint16_t BottomLeft, uint16_t BottomRight);
 
-void DrawMap(SDL_Texture* ASCII, SDL_Renderer* render, SDL_Rect);
+void DrawMap(SDL_Texture* ASCII, SDL_Renderer* render, SDL_Rect* target);
 
 };
 
