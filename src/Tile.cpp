@@ -171,12 +171,17 @@ void TileMap::DrawMap(SDL_Texture* ASCII, SDL_Renderer* render, SDL_Rect* target
             target -> y = TilePosy[i];
             SDL_RenderCopy(render, ASCII, &Tile, target);
 
+
         }
 
 
 
     }
     
+    void TileMap::DetermineBiome(uint16_t Tile)
+    {
+
+    }
 /*
 0, 0, 0, 0, 0, 0 ,0 ,0 ,0 ,0, 0, 0, 0, 0, 0 ,0 ,0
 0, 0, 0, 0, 0, 0 ,0 ,0 ,0 ,0, 0, 0, 0, 0, 0 ,0 ,0
