@@ -81,7 +81,7 @@ for(uint16_t i = 0; i < TileID.size(); i++)
 }
 
 TileHeight[TileID.size()/2] = Displace(TileHeight[0], TileHeight[NumTilesX-1], TileHeight[NumTilesX * (NumTilesX-1) + 1], TileHeight[TileID.size()-1], InitialRoughness ,TileHeight[TileID.size()/2]);
-//Smooth(TileID.size()/2, 0, NumTilesX-1, NumTilesX * (NumTilesX-1) + 1, TileID.size());
+Smooth(TileID.size()/2, 0, NumTilesX-1, NumTilesX * (NumTilesX-1) + 1, TileID.size());
 for(uint16_t i = 0; i < 4; i++)
 {
 Roughness = rand(Gen);
@@ -98,7 +98,7 @@ switch (i)
 }
     
     TileHeight[Index] = Displace( TileHeight[TopLeft],TileHeight[TopRight],TileHeight[BottomLeft],TileHeight[BottomLeft], Roughness, TileHeight[Index]);
-    //Smooth(TileHeight[Index],TopLeft, TopRight, BottomLeft, BottomRight);
+    Smooth(TileHeight[Index],TopLeft, TopRight, BottomLeft, BottomRight);
     for(uint16_t i = 0; i < Iterations; i++)
     {
        scale = (scale/2);
