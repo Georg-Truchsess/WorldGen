@@ -30,7 +30,7 @@ int main(int argc, char* argv[])
 
   map.GenerateHeightMap(100, -100, 0, 17, gen);
 
-  int it = 0;
+  
 for(const auto& item : map.TileHeight)
 {
     std::cout<< static_cast<int>(item) << std::endl;
@@ -82,8 +82,7 @@ for(const auto& item : map.TileHeight)
         SDL_SetRenderDrawColor(rend, 0, 0, 0,255);
         SDL_RenderClear(rend);
         SDL_Rect rect = {10, 5, 20, 20};
-        SDL_Rect r2 = {0, 0, 200, 200 };
-    SDL_RenderCopy(rend, AsciiTable, &rect, &r2);
+        SDL_RenderCopy(rend, AsciiTable, &rect, NULL);
         SDL_RenderPresent(rend);
         while(SDL_PollEvent(&event) != 0)
         {

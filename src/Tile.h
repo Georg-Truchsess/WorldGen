@@ -34,7 +34,7 @@ void GenerateTileCoordinates( uint16_t Tiles, uint16_t NumTilesX);
 
 void GenerateHeightMap(int8_t DisplacementValueMax, int8_t DisplacementValueMin, uint16_t Iterations, uint16_t NumTilesX, std::mt19937 Gen);
 
-uint16_t FindMidpoint(uint16_t diviser, uint16_t MidpointX, uint16_t MidpointY);
+uint16_t FindMidpoint(uint16_t TopLeft, uint16_t BottomRight, uint16_t Midpoint);
 
 uint8_t Displace(uint8_t Corner1, uint8_t Corner2, uint8_t Corner3, uint8_t Corner4, uint8_t DisplacementValue, uint8_t Midpoint);
 

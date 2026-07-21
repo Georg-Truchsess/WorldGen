@@ -81,7 +81,7 @@ for(uint16_t i = 0; i < TileID.size(); i++)
 }
 
 TileHeight[TileID.size()/2] = Displace(TileHeight[0], TileHeight[NumTilesX-1], TileHeight[NumTilesX * (NumTilesX-1) + 1], TileHeight[TileID.size()-1], InitialRoughness ,TileHeight[TileID.size()/2]);
-Smooth(TileID.size()/2, 0, NumTilesX-1, NumTilesX * (NumTilesX-1) + 1, TileID.size());
+//Smooth(TileID.size()/2, 0, NumTilesX-1, NumTilesX * (NumTilesX-1) + 1, TileID.size());
 for(uint16_t i = 0; i < 4; i++)
 {
 Roughness = rand(Gen);
@@ -98,7 +98,7 @@ switch (i)
 }
     
     TileHeight[Index] = Displace( TileHeight[TopLeft],TileHeight[TopRight],TileHeight[BottomLeft],TileHeight[BottomLeft], Roughness, TileHeight[Index]);
-    Smooth(TileHeight[Index],TopLeft, TopRight, BottomLeft, BottomRight);
+    //Smooth(TileHeight[Index],TopLeft, TopRight, BottomLeft, BottomRight);
     for(uint16_t i = 0; i < Iterations; i++)
     {
        scale = (scale/2);
@@ -108,15 +108,12 @@ switch (i)
 }
 }
 
-uint16_t TileMap::FindMidpoint(uint16_t diviser, uint16_t MidpointX, uint16_t MidpointY)
+uint16_t TileMap::FindMidpoint(uint16_t TopLeft, uint16_t BottomRight, uint16_t Midpoint)
 {
 
-MidpointX = TilePosx.size() / diviser;
+    Midpoint = BottomRight-TopLeft;
 
-MidpointY = TilePosy.size() / diviser;
-
-return MidpointX, MidpointY;
-
+return Midpoint;
 
 }
 
@@ -134,7 +131,7 @@ return Midpoint;
 // Smooths the height of other tiles around the midpoint after being displaced
 void TileMap::Smooth(uint16_t Midpoint, uint16_t TopLeft, uint16_t TopRight, uint16_t BottomLeft, uint16_t BottomRight)
 {
-    uint16_t range = (BottomRight-TopLeft)/(TopRight-TopLeft);
+    uint16_t range = BottomRight-TopLeft;
     uint16_t CurrentTile = TopLeft;
     double distance;
     uint8_t scale = 1;
@@ -165,20 +162,12 @@ void TileMap::Smooth(uint16_t Midpoint, uint16_t TopLeft, uint16_t TopRight, uin
 
 void TileMap::DrawMap(SDL_Texture* ASCII, SDL_Renderer* render, SDL_Rect* target)
     {
-        for(int i = 0; i < TileID.size(); i++)
-        {
-            target -> x = TilePosx[i];
-            target -> y = TilePosy[i];
-            SDL_RenderCopy(render, ASCII, &Tile, target);
-
-
-        }
 
 
 
     }
     
-    void TileMap::DetermineBiome(uint16_t Tile)
+void TileMap::DetermineBiome(uint16_t Tile)
     {
 
     }
