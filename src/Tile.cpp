@@ -108,6 +108,7 @@ switch (i)
 }
 }
 
+//TODO: Fix this function, stupid
 uint16_t TileMap::FindMidpoint(uint16_t TopLeft, uint16_t BottomRight, uint16_t Midpoint)
 {
 
