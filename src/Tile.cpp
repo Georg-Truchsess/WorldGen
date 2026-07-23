@@ -164,6 +164,12 @@ void TileMap::Smooth(uint16_t Midpoint, uint16_t TopLeft, uint16_t TopRight, uin
 void TileMap::DrawMap(SDL_Texture* ASCII, SDL_Renderer* render, SDL_Rect* target)
     {
 
+        for(uint16_t i = 0; i < TileID.size(); i++)
+        {
+
+            
+
+        }
 
 
     }

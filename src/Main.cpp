@@ -30,10 +30,17 @@ int main(int argc, char* argv[])
 
   map.GenerateHeightMap(100, -100, 0, 17, gen);
 
-  
+  int it = 0;
 for(const auto& item : map.TileHeight)
 {
-    std::cout<< static_cast<int>(item) << std::endl;
+    if(it < 17)
+    {
+    std::cout<< static_cast<int>(item) << " ";
+    }
+    else{
+        std::cout << std::endl;
+        it = 0;
+    }
 }
    
    
