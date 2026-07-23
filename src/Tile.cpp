@@ -98,7 +98,7 @@ switch (i)
 }
     
     TileHeight[Index] = Displace( TileHeight[TopLeft],TileHeight[TopRight],TileHeight[BottomLeft],TileHeight[BottomLeft], Roughness, TileHeight[Index]);
-    Smooth(TileHeight[Index],TopLeft, TopRight, BottomLeft, BottomRight);
+    Smooth(Index, TopLeft, TopRight, BottomLeft, BottomRight);
     for(uint16_t i = 0; i < Iterations; i++)
     {
        scale = (scale/2);
