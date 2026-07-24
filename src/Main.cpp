@@ -37,8 +37,8 @@ for(const auto& item : map.TileHeight)
     {
     std::cout<< static_cast<int>(item) << " ";
     }
-    else{
-        std::cout << std::endl;
+    if (it > 17){
+        std::cout << " " << std::endl;
         it = 0;
     }
 }
