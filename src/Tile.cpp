@@ -165,10 +165,12 @@ void TileMap::DrawMap(SDL_Texture* ASCII, SDL_Renderer* render, SDL_Rect* target
     {
             SDL_Rect* T = &Tile;
 
+           
+
         for(uint16_t i = 0; i < TileID.size(); i++)
         {
 
-            DetermineBiome(i);
+            DetermineBiome(i, target, T);
 
             SDL_RenderCopy(render, ASCII, T, target);
 
@@ -179,16 +181,28 @@ void TileMap::DrawMap(SDL_Texture* ASCII, SDL_Renderer* render, SDL_Rect* target
 
     }
     
-void TileMap::DetermineBiome(uint16_t Index)
+void TileMap::DetermineBiome(uint16_t Index, SDL_Rect* target, SDL_Rect* T)
     {
 
         if(TileHeight[Index] >= 0)
         {
+            T -> x = 15;
 
+            T -> y = 6;
+
+            T -> w = 10;
+
+            T -> h = 15;
         }
         else
         {
-            
+            T -> x = 0;
+
+            T -> y = 0;
+
+            T -> w = 1;
+
+            T -> h = 1;
         }
 
     }

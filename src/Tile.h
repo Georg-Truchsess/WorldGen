@@ -42,6 +42,6 @@ void Smooth(uint16_t Midpoint, uint16_t TopLeft, uint16_t TopRight, uint16_t Bot
 
 void DrawMap(SDL_Texture* ASCII, SDL_Renderer* render, SDL_Rect* target);
 
-void DetermineBiome(uint16_t Index);
+void DetermineBiome(uint16_t Index, SDL_Rect* target, SDL_Rect* T);
 };
 
