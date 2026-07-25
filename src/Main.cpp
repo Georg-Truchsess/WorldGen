@@ -88,7 +88,7 @@ for(const auto& item : map.TileHeight)
     {
         SDL_SetRenderDrawColor(rend, 0, 0, 0,255);
         SDL_RenderClear(rend);
-        SDL_Rect rect = {10, 5, 20, 20};
+        SDL_Rect rect = {15, 8, 10, 20};
         SDL_RenderCopy(rend, AsciiTable, &rect, NULL);
         SDL_RenderPresent(rend);
         while(SDL_PollEvent(&event) != 0)
