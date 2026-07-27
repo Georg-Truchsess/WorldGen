@@ -26,18 +26,18 @@ int main(int argc, char* argv[])
 
   map.GenerateID(289);
 
-  map.GenerateTileCoordinates(289, 17);
+  map.GenerateTileCoordinates(1089, 33);
 
   map.GenerateHeightMap(100, -100, 0, 17, gen);
 
   int it = 0;
 for(const auto& item : map.TileHeight)
 {
-    if(it < 17)
+    if(it < 33)
     {
     std::cout<< static_cast<int>(item) << " ";
     }
-    if (it > 17){
+    if (it > 33){
         std::cout << " " << std::endl;
         it = 0;
     }
