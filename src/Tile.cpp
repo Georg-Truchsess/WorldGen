@@ -163,7 +163,7 @@ void TileMap::Smooth(uint16_t Midpoint, uint16_t TopLeft, uint16_t TopRight, uin
 
 void TileMap::DrawMap(SDL_Texture* ASCII, SDL_Renderer* render, SDL_Rect* target)
     {
-            SDL_Rect* T = &Tile;
+            
 
            
 
@@ -171,9 +171,9 @@ void TileMap::DrawMap(SDL_Texture* ASCII, SDL_Renderer* render, SDL_Rect* target
         {
             target -> x = TilePosx[i];
             target -> y = TilePosy[i];
-            DetermineBiome(i, target, T);
+            DetermineBiome(i, target, &Tile);
 
-            SDL_RenderCopy(render, ASCII, T, target);
+            SDL_RenderCopy(render, ASCII, &Tile, target);
 
             
 

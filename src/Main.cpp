@@ -20,24 +20,24 @@ int main(int argc, char* argv[])
     std::mt19937 gen(rd());
 
 
-
+int NumX = 33;
 
    TileMap map;
 
   map.GenerateID(289);
 
-  map.GenerateTileCoordinates(1089, 33);
+  map.GenerateTileCoordinates(1089, NumX);
 
-  map.GenerateHeightMap(100, -100, 0, 17, gen);
+  map.GenerateHeightMap(100, -100, 0, NumX, gen);
 
   int it = 0;
 for(const auto& item : map.TileHeight)
 {
-    if(it < 33)
+    if(it < NumX)
     {
     std::cout<< static_cast<int>(item) << " ";
     }
-    if (it > 33){
+    if (it > NumX){
         std::cout << " " << std::endl;
         it = 0;
     }
