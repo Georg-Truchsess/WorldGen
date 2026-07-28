@@ -66,8 +66,8 @@ uint16_t Index;
 int8_t InitialRoughness = rand(Gen);
 
 uint16_t TopLeft = 0;
-uint16_t TopRight = std::ceil(NumTilesX/2);
-uint16_t BottomLeft = (TileID.size()/2) - (std::ceil((NumTilesX/2)) - 1);
+uint16_t TopRight = NumTilesX/2;
+uint16_t BottomLeft = (TileID.size()/2) - ((NumTilesX/2) - 1);
 uint16_t BottomRight = TileID.size()/2;
 // Used for remaining iterations
 int8_t Roughness;
@@ -108,7 +108,7 @@ switch (i)
 }
 }
 
-//TODO: Fix this function, stupid
+//used to find midpoint between two values
 uint16_t TileMap::FindMidpoint(uint16_t TopLeft, uint16_t TopRight, uint16_t BottomRight, uint16_t Midpoint)
 {
 
