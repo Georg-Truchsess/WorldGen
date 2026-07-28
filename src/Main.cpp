@@ -94,7 +94,7 @@ for(const auto& item : map.TileHeight)
         map.Tile = rect;
         map.DrawMap(AsciiTable, rend, &r2);
 
-        //SDL_RenderCopy(rend, AsciiTable, &rect, &r2);
+        
         SDL_RenderPresent(rend);
         while(SDL_PollEvent(&event) != 0)
         {

@@ -102,7 +102,7 @@ switch (i)
     for(uint16_t i = 0; i < Iterations; i++)
     {
        scale = (scale/2);
-        Roughness = rand(Gen) / scale;
+        Roughness = static_cast<int8_t>(rand(Gen) / scale);
 
     }
 }
