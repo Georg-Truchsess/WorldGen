@@ -114,7 +114,7 @@ uint16_t TileMap::FindMidpoint(uint16_t TopLeft, uint16_t TopRight, uint16_t Bot
 
 uint16_t Width = TopRight-TopLeft;
 
-    Midpoint = (BottomRight/2) / Width;
+    Midpoint = ((BottomRight-TopLeft)/2) / Width;
 
 return Midpoint;
 
