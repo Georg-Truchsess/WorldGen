@@ -111,7 +111,7 @@ switch (i)
 //used to find midpoint between two values
 uint16_t TileMap::FindMidpoint(uint16_t TopLeft, uint16_t TopRight, uint16_t BottomRight, uint16_t Midpoint)
 {
-
+//
 uint16_t Width = TopRight-TopLeft;
 
     Midpoint = ((BottomRight-TopLeft)/2) / Width;
