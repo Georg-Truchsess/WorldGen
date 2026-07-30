@@ -111,7 +111,7 @@ switch (i)
 //used to find midpoint between two values
 uint16_t TileMap::FindMidpoint(uint16_t TopLeft, uint16_t TopRight, uint16_t BottomRight, uint16_t Midpoint)
 {
-//
+
 uint16_t Width = TopRight-TopLeft;
 
     Midpoint = ((BottomRight-TopLeft)/2) / Width;
@@ -173,7 +173,7 @@ void TileMap::DrawMap(SDL_Texture* ASCII, SDL_Renderer* render, SDL_Rect* target
         {
             target -> x = TilePosx[i];
             target -> y = TilePosy[i];
-            DetermineBiome(i, target, &Tile);
+            DetermineBiome(i, &Tile);
 
             SDL_RenderCopy(render, ASCII, &Tile, target);
 
@@ -184,7 +184,7 @@ void TileMap::DrawMap(SDL_Texture* ASCII, SDL_Renderer* render, SDL_Rect* target
 
     }
     
-void TileMap::DetermineBiome(uint16_t Index, SDL_Rect* target, SDL_Rect* T)
+void TileMap::DetermineBiome(uint16_t Index, SDL_Rect* T)
     {
 
         if(TileHeight[Index] >= 0)
