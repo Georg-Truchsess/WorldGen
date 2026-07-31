@@ -28,7 +28,7 @@ int NumX = 33;
 
   map.GenerateTileCoordinates(1089, NumX);
 
-  map.GenerateHeightMap(100, -100, 0, NumX, gen);
+  map.GenerateHeightMap(100, -100, 3, NumX, gen);
 
   int it = 0;
 for(const auto& item : map.TileHeight)
