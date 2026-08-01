@@ -110,7 +110,8 @@ switch (i)
 
         FindMidpoint(TopLeft, TopRight, BottomRight, Midpoint);
 
-        Displace(TileHeight[TopLeft], TileHeight[TopRight], TileHeight[BottomLeft], TileHeight[BottomRight], Roughness, TileHeight[Midpoint]);
+        TileHeight[Midpoint] = Displace(TileHeight[TopLeft], TileHeight[TopRight], TileHeight[BottomLeft], TileHeight[BottomRight], Roughness, TileHeight[Midpoint]);
+        Smooth(Midpoint, TopLeft, TopRight, BottomLeft, BottomRight);
 
     }
 }
