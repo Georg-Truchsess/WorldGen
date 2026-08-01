@@ -24,7 +24,7 @@ int NumX = 33;
 
    TileMap map;
 
-  map.GenerateID(289);
+  map.GenerateID(1089);
 
   map.GenerateTileCoordinates(1089, NumX);
 
