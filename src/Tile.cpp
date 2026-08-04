@@ -108,7 +108,7 @@ switch (i)
     
         TopLeft /= 2; TopRight /= 2; BottomLeft /= 2; BottomRight /= 2;
 
-        FindMidpoint(TopLeft, TopRight, BottomRight, Midpoint);
+        FindMidpoint(TopLeft, BottomRight, Midpoint);
 
         TileHeight[Midpoint] = Displace(TileHeight[TopLeft], TileHeight[TopRight], TileHeight[BottomLeft], TileHeight[BottomRight], Roughness, TileHeight[Midpoint]);
         Smooth(Midpoint, TopLeft, TopRight, BottomLeft, BottomRight);
@@ -118,12 +118,12 @@ switch (i)
 }
 
 //used to find midpoint between two values
-uint16_t TileMap::FindMidpoint(uint16_t TopLeft, uint16_t TopRight, uint16_t BottomRight, uint16_t Midpoint)
+uint16_t TileMap::FindMidpoint(uint16_t TopLeft, uint16_t BottomRight, uint16_t Midpoint)
 {
 
-uint16_t Width = TopRight-TopLeft;
 
-    Midpoint = ((BottomRight-TopLeft)/2) / Width;
+
+    Midpoint = (BottomRight-TopLeft)/2;
 
 return Midpoint;
 
