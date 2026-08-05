@@ -112,6 +112,11 @@ switch (i)
 
         TileHeight[Midpoint] = Displace(TileHeight[TopLeft], TileHeight[TopRight], TileHeight[BottomLeft], TileHeight[BottomRight], Roughness, TileHeight[Midpoint]);
         Smooth(Midpoint, TopLeft, TopRight, BottomLeft, BottomRight);
+        for(uint16_t i = 0; i < 4; i++)
+        {
+            TopLeft *= 2;
+
+        }
 
     }
 }
