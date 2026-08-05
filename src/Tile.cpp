@@ -62,7 +62,10 @@ void TileMap::GenerateHeightMap(int8_t DisplacementValueMax, int8_t Displacement
 std::uniform_int_distribution<int8_t> rand(DisplacementValueMin, DisplacementValueMax);
 
 uint16_t Index;
-
+uint16_t TLH;
+uint16_t TRH;
+uint16_t BLH;
+uint16_t BRH;
 uint16_t Midpoint;
 // Used for initial iteration
 int8_t InitialRoughness = rand(Gen);
@@ -107,17 +110,27 @@ switch (i)
         Roughness = static_cast<int8_t>(rand(Gen) / scale);
     
         TopLeft /= 2; TopRight /= 2; BottomLeft /= 2; BottomRight /= 2;
-
+        TLH = TopLeft; TRH = TopRight; BLH = BottomLeft; BRH = BottomRight;
         FindMidpoint(TopLeft, BottomRight, Midpoint);
 
         TileHeight[Midpoint] = Displace(TileHeight[TopLeft], TileHeight[TopRight], TileHeight[BottomLeft], TileHeight[BottomRight], Roughness, TileHeight[Midpoint]);
         Smooth(Midpoint, TopLeft, TopRight, BottomLeft, BottomRight);
-        for(uint16_t i = 0; i < 4; i++)
+        for(uint16_t i = 0; i < 3; i++)
         {
-            TopLeft *= 2;
+            switch(i)
+            {
+                case 0: TopLeft += TopLeft; TopRight += TopRight; BottomLeft += BottomLeft; BottomRight += BottomRight;
+                case 1: TopLeft += (TopLeft * 2); TopRight += (TopRight * 2);  
+                case 2: TopLeft =+ (TopLeft * 3); TopRight += (TopRight * 3); 
+            }
+
+            FindMidpoint(TopLeft, BottomRight, Midpoint);
+
+            TileHeight[Midpoint] = Displace(TileHeight[TopLeft], TileHeight[TopRight], TileHeight[BottomLeft], TileHeight[BottomRight], Roughness, TileHeight[Midpoint]);
+            Smooth(Midpoint, TopLeft, TopRight, BottomLeft, BottomRight);
 
         }
-
+        TopLeft = TLH; TopRight = TRH; BottomLeft = BLH; BottomRight = BRH;
     }
 }
 }
