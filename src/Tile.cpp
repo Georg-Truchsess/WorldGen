@@ -115,12 +115,20 @@ switch (i)
 
         TileHeight[Midpoint] = Displace(TileHeight[TopLeft], TileHeight[TopRight], TileHeight[BottomLeft], TileHeight[BottomRight], Roughness, TileHeight[Midpoint]);
         Smooth(Midpoint, TopLeft, TopRight, BottomLeft, BottomRight);
-        TopLeft += 10; TopRight += 10; BottomLeft += 10; BottomRight += 10;
+        TopLeft += (TopRight-TopLeft); TopRight += (TopRight-TopLeft); BottomLeft += (BottomRight-BottomLeft); BottomRight += (BottomRight-BottomLeft);
 
         FindMidpoint(TopLeft, BottomRight, Midpoint);
 
         TileHeight[Midpoint] = Displace(TileHeight[TopLeft], TileHeight[TopRight], TileHeight[BottomLeft], TileHeight[BottomRight], Roughness,TileHeight[Midpoint] );
         TopLeft = TLH; TopRight = TRH; BottomLeft = BLH; BottomRight = BRH;
+
+        TopLeft *= (BottomLeft/TopLeft); TopRight *= (BottomRight/TopRight);
+
+        FindMidpoint(TopLeft, BottomRight, Midpoint);
+
+        TileHeight[Midpoint] = Displace(TileHeight[TopLeft], TileHeight[TopRight], TileHeight[BottomLeft], TileHeight[BottomRight], Roughness,TileHeight[Midpoint] );
+        TopLeft = TLH; TopRight = TRH; BottomLeft = BLH; BottomRight = BRH;
+
     }
 }
 }
