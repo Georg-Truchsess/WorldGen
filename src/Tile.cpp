@@ -115,7 +115,7 @@ switch (i)
 
         TileHeight[Midpoint] = Displace(TileHeight[TopLeft], TileHeight[TopRight], TileHeight[BottomLeft], TileHeight[BottomRight], Roughness, TileHeight[Midpoint]);
         Smooth(Midpoint, TopLeft, TopRight, BottomLeft, BottomRight);
-        TopLeft += 3; TopRight += 3; BottomLeft += 3; BottomRight += 3;
+        TopLeft += 10; TopRight += 10; BottomLeft += 10; BottomRight += 10;
 
         FindMidpoint(TopLeft, BottomRight, Midpoint);
 
