@@ -122,12 +122,12 @@ switch (i)
         TileHeight[Midpoint] = Displace(TileHeight[TopLeft], TileHeight[TopRight], TileHeight[BottomLeft], TileHeight[BottomRight], Roughness,TileHeight[Midpoint] );
         TopLeft = TLH; TopRight = TRH; BottomLeft = BLH; BottomRight = BRH;
 
-        TopLeft *= (BottomLeft/TopLeft); TopRight *= (BottomRight/TopRight);
+       // TopLeft *= (BottomLeft/TopLeft); TopRight *= (BottomRight/TopRight);
 
-        FindMidpoint(TopLeft, BottomRight, Midpoint);
+        //FindMidpoint(TopLeft, BottomRight, Midpoint);
 
-        TileHeight[Midpoint] = Displace(TileHeight[TopLeft], TileHeight[TopRight], TileHeight[BottomLeft], TileHeight[BottomRight], Roughness,TileHeight[Midpoint] );
-        TopLeft = TLH; TopRight = TRH; BottomLeft = BLH; BottomRight = BRH;
+        //TileHeight[Midpoint] = Displace(TileHeight[TopLeft], TileHeight[TopRight], TileHeight[BottomLeft], TileHeight[BottomRight], Roughness,TileHeight[Midpoint] );
+        //TopLeft = TLH; TopRight = TRH; BottomLeft = BLH; BottomRight = BRH;
 
     }
 }
@@ -212,7 +212,7 @@ void TileMap::DrawMap(SDL_Texture* ASCII, SDL_Renderer* render, SDL_Rect* target
 void TileMap::DetermineBiome(uint16_t Index, SDL_Rect* T)
     {
 
-        if(TileHeight[Index] >= 0)
+        if(TileHeight[Index] >= 20)
         {
             T -> x = 15;
 
