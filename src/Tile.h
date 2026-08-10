@@ -11,17 +11,21 @@
 struct TileMap
 {
 
+
 std::vector<std::string> TileType{};
+std::string TileTypes [20] = {"Plain","Ocean","Mountain","Wetland","River","Desert"};
 SDL_Rect Tile;
 int Width;
 int Height;
 int AtlasArrayx [20] = {};
 int AtlasArrayy [20] = {};
+std::vector <uint32_t> Population{};
 uint16_t counterx = 0;
 uint16_t countery = 0;
 std::vector<uint16_t> TileID{};
 std::vector<uint16_t> TilePosx{};
 std::vector<uint16_t> TilePosy{};
+
 std::vector<int8_t> TileHeight {};
 std::vector<uint8_t> WaterExposure {};
 
