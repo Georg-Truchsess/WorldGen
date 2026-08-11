@@ -13,7 +13,7 @@ struct TileMap
 
 
 std::vector<std::string> TileType{};
-std::string TileTypes [20] = {"Plain","Ocean","Mountain","Wetland","River","Desert"};
+std::string TileTypes [20] = {"Plain","Ocean","Mountain","Wetland","River","Desert","Hills"};
 SDL_Rect Tile;
 int Width;
 int Height;

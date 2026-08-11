@@ -20,13 +20,13 @@ int main(int argc, char* argv[])
     std::mt19937 gen(rd());
 
 
-int NumX = 33;
+int NumX = 65;
 
    TileMap map;
 
-  map.GenerateID(1089);
+  map.GenerateID(4225);
 
-  map.GenerateTileCoordinates(1089, NumX);
+  map.GenerateTileCoordinates(4225, NumX);
 
   map.GenerateHeightMap(100, -100, 5, NumX, gen);
 
@@ -101,6 +101,43 @@ for(const auto& item : map.TileHeight)
             if(event.type == SDL_QUIT)
             {
                 IsRunning = false;
+            }
+            else if(event.type == SDL_KEYDOWN)
+            {
+                switch(event.key.keysym.sym)
+                {
+                    case SDLK_UP: 
+
+                    for(uint16_t i = 0; i < map.TileID.size(); i++)
+                    {
+                        map.TilePosy[i] += 30;
+                    }
+
+                    case SDLK_DOWN: 
+
+                    for(uint16_t  i = 0; i < map.TileID.size(); i++)
+                    {
+                        map.TilePosy[i] -= 30;
+                    }
+
+                    case SDLK_LEFT: 
+
+                    std::cout << map.TilePosx[0] << std::endl;
+                    for(uint16_t i = 0; i < map.TileID.size(); i++)
+                    {
+                        map.TilePosx[i] += 30;
+                        
+                    }
+
+                    case SDLK_RIGHT: 
+
+                    for(uint16_t i = 0; i < map.TileID.size(); i++)
+                    {
+                        map.TilePosx[i] -= 30;
+                    }
+
+                }
+
             }
         }
     }
