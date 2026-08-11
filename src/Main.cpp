@@ -98,45 +98,50 @@ for(const auto& item : map.TileHeight)
         SDL_RenderPresent(rend);
         while(SDL_PollEvent(&event) != 0)
         {
+           const Uint8* state = SDL_GetKeyboardState(NULL);
+
             if(event.type == SDL_QUIT)
             {
                 IsRunning = false;
             }
             else if(event.type == SDL_KEYDOWN)
             {
-                switch(event.key.keysym.sym)
-                {
-                    case SDLK_UP: 
-
+                 
+                    if( state[SDL_SCANCODE_UP])
+                    {
                     for(uint16_t i = 0; i < map.TileID.size(); i++)
                     {
                         map.TilePosy[i] += 30;
                     }
-
-                    case SDLK_DOWN: 
-
+                    }
+                     
+                    if( state[SDL_SCANCODE_DOWN])
+                    {
+                    
                     for(uint16_t  i = 0; i < map.TileID.size(); i++)
                     {
                         map.TilePosy[i] -= 30;
                     }
+                    }
+                
 
-                    case SDLK_LEFT: 
-
-                    std::cout << map.TilePosx[0] << std::endl;
+                    if(state[SDL_SCANCODE_LEFT])
+                    {
                     for(uint16_t i = 0; i < map.TileID.size(); i++)
                     {
                         map.TilePosx[i] += 30;
                         
                     }
-
-                    case SDLK_RIGHT: 
-
+                    }   
+                    
+                    if(state[SDL_SCANCODE_RIGHT])
+                    {
                     for(uint16_t i = 0; i < map.TileID.size(); i++)
                     {
                         map.TilePosx[i] -= 30;
                     }
-
-                }
+                    }
+                    
 
             }
         }
