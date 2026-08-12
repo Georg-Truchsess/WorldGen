@@ -234,6 +234,11 @@ void TileMap::DetermineBiome(uint16_t Index, SDL_Rect* T)
         }
 
     }
+    void TileMap::GenerateRivers()
+    {
+        
+
+    }
 /*
 0, 0, 0, 0, 0, 0 ,0 ,0 ,0 ,0, 0, 0, 0, 0, 0 ,0 ,0
 0, 0, 0, 0, 0, 0 ,0 ,0 ,0 ,0, 0, 0, 0, 0, 0 ,0 ,0

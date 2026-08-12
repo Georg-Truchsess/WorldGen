@@ -18,10 +18,10 @@ int main(int argc, char* argv[])
     //RNG seeding
     std::random_device rd;
     std::mt19937 gen(rd());
-
+ std::uniform_int_distribution<int> distrib(1, 10); 
 
 int NumX = 65;
-
+uint8_t chance;
    TileMap map;
 
   map.GenerateID(4225);
@@ -29,6 +29,18 @@ int NumX = 65;
   map.GenerateTileCoordinates(4225, NumX);
 
   map.GenerateHeightMap(100, -100, 5, NumX, gen);
+
+  for(int i = 0; i < (map.TileID.size()-1); i++)
+  {
+    if(map.TileHeight[i] > 60)
+    {
+        chance = distrib(gen);
+        if(chance = 10)
+        {
+        map.GenerateRivers();
+        }
+    }
+  }
 
   int it = 0;
 for(const auto& item : map.TileHeight)
