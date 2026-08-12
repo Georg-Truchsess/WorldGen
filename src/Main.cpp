@@ -21,14 +21,16 @@ std::mt19937 gen(rd());
  std::uniform_int_distribution<int> distrib(1, 10); 
 
 int NumX = 65;
-int MapSize = NumX *= NumX;
+int TableSize = NumX * NumX;
 uint8_t chance;
    TileMap map; //4225
 
-  map.GenerateID(4225);
+  map.GenerateID(TableSize);
 
-  map.GenerateTileCoordinates(4225, NumX);
+  map.GenerateTileCoordinates(TableSize, NumX);
 
+  
+    
   map.GenerateHeightMap(100, -100, 5, NumX, gen);
 
   /*for(int i = 0; i < (map.TileID.size()-1); i++)
