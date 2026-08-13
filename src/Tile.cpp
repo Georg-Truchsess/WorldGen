@@ -212,7 +212,7 @@ void TileMap::DrawMap(SDL_Texture* ASCII, SDL_Renderer* render, SDL_Rect* target
 void TileMap::DetermineBiome(uint16_t Index, SDL_Rect* T)
     {
 
-        if(TileHeight[Index] >= 20)
+        if(TileHeight[Index] >= 15)
         {
             T -> x = 15;
 
@@ -236,8 +236,74 @@ void TileMap::DetermineBiome(uint16_t Index, SDL_Rect* T)
     }
 
     // Generates rivers from mountains
-    void TileMap::GenerateRivers()
+    void TileMap::GenerateRivers(uint16_t CurrentTile, uint16_t NumTilesX)
     {
+        TileType[CurrentTile] = "River";
+        bool EndOfRiver = false;
 
+        while(!EndOfRiver)
+        {
+            if(TileHeight[CurrentTile + 1] < CurrentTile && CurrentTile + 1 < TileID.size()-1)
+            {
+                CurrentTile += 1;
+
+                TileType[CurrentTile] = "River";
+
+            }
+            else if(TileHeight[CurrentTile - 1] < CurrentTile && CurrentTile - 1 < TileID.size()-1)
+            {
+                CurrentTile -= 1;
+
+                TileType[CurrentTile] = "River";
+
+            }
+            else if(TileHeight[CurrentTile + NumTilesX] < CurrentTile && CurrentTile + NumTilesX < TileID.size()-1)
+            {
+                CurrentTile += NumTilesX;
+
+                TileType[CurrentTile] = "River";
+
+            }
+            else if(TileHeight[CurrentTile + NumTilesX + 1] < CurrentTile && CurrentTile + NumTilesX + 1 < TileID.size()-1)
+            {
+                CurrentTile += NumTilesX + 1;
+
+                TileType[CurrentTile] = "River";
+
+            }
+            else if(TileHeight[CurrentTile + NumTilesX] - 1 < CurrentTile && CurrentTile + NumTilesX - 1 < TileID.size()-1)
+            {
+                CurrentTile += NumTilesX -1;
+
+                TileType[CurrentTile] = "River";
+
+            }
+            else if(TileHeight[CurrentTile - NumTilesX] < CurrentTile && CurrentTile - NumTilesX < TileID.size()-1)
+            {
+                CurrentTile -= NumTilesX;
+
+                TileType[CurrentTile] = "River";
+
+            }
+            else if(TileHeight[CurrentTile - NumTilesX + 1] < CurrentTile && CurrentTile - NumTilesX + 1 < TileID.size()-1)
+            {
+                CurrentTile -= NumTilesX + 1;
+
+                TileType[CurrentTile] = "River";
+
+            }
+            else if(TileHeight[CurrentTile - NumTilesX - 1] < CurrentTile && CurrentTile - NumTilesX - 1< TileID.size()-1)
+            {
+                CurrentTile -= NumTilesX - 1;
+
+                TileType[CurrentTile] = "River";
+
+            }
+            else
+            {
+                EndOfRiver = true;
+            }
+
+        }
 
     }

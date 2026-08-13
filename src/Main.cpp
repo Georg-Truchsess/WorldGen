@@ -33,17 +33,17 @@ uint8_t chance;
     
   map.GenerateHeightMap(100, -100, 5, NumX, gen);
 
-  /*for(int i = 0; i < (map.TileID.size()-1); i++)
+  for(int i = 0; i < (map.TileID.size()-1); i++)
   {
     if(map.TileHeight[i] > 60)
     {
         chance = distrib(gen);
         if(chance = 10)
         {
-        map.GenerateRivers();
+        map.GenerateRivers(map.TileHeight[i], NumX);
         }
     }
-  }*/
+  }
 
   int it = 0;
 for(const auto& item : map.TileHeight)

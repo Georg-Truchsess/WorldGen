@@ -49,6 +49,6 @@ void DrawMap(SDL_Texture* ASCII, SDL_Renderer* render, SDL_Rect* target);
 
 void DetermineBiome(uint16_t Index, SDL_Rect* T);
 
-void GenerateRivers();
+void GenerateRivers(uint16_t CurrentTile, uint16_t NumTilesX);
 };
 
