@@ -32,7 +32,11 @@ uint8_t chance;
   
     
   map.GenerateHeightMap(100, -100, 5, NumX, gen);
-
+map.TileType.reserve(map.TileID.size());
+for(int i = 0; i < map.TileID.size(); i++)
+{
+    map.TileType.push_back("None");
+}
   for(int i = 0; i < (map.TileID.size()-1); i++)
   {
     if(map.TileHeight[i] > 60)

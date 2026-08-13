@@ -212,7 +212,7 @@ void TileMap::DrawMap(SDL_Texture* ASCII, SDL_Renderer* render, SDL_Rect* target
 void TileMap::DetermineBiome(uint16_t Index, SDL_Rect* T)
     {
 
-        if(TileHeight[Index] >= 15)
+        if(TileHeight[Index] >= 15 && TileType[Index] != "River")
         {
             T -> x = 15;
 
@@ -241,59 +241,71 @@ void TileMap::DetermineBiome(uint16_t Index, SDL_Rect* T)
         TileType[CurrentTile] = "River";
         bool EndOfRiver = false;
 
+        uint16_t PreviousTile;
+
         while(!EndOfRiver)
         {
-            if(TileHeight[CurrentTile + 1] < CurrentTile && CurrentTile + 1 < TileID.size()-1)
+            if(TileHeight[CurrentTile + 1] < CurrentTile && CurrentTile + 1 < TileID.size()-1 && CurrentTile + 1 != PreviousTile)
             {
+                PreviousTile = CurrentTile;
                 CurrentTile += 1;
 
                 TileType[CurrentTile] = "River";
 
             }
-            else if(TileHeight[CurrentTile - 1] < CurrentTile && CurrentTile - 1 < TileID.size()-1)
+            else if(TileHeight[CurrentTile - 1] < CurrentTile && CurrentTile - 1 < TileID.size()-1 && CurrentTile -1 != PreviousTile)
             {
+                PreviousTile = CurrentTile;
                 CurrentTile -= 1;
 
                 TileType[CurrentTile] = "River";
 
             }
-            else if(TileHeight[CurrentTile + NumTilesX] < CurrentTile && CurrentTile + NumTilesX < TileID.size()-1)
+            else if(TileHeight[CurrentTile + NumTilesX] < CurrentTile && CurrentTile + NumTilesX < TileID.size()-1 && CurrentTile + NumTilesX != PreviousTile)
             {
+                PreviousTile = CurrentTile;
                 CurrentTile += NumTilesX;
 
                 TileType[CurrentTile] = "River";
 
             }
-            else if(TileHeight[CurrentTile + NumTilesX + 1] < CurrentTile && CurrentTile + NumTilesX + 1 < TileID.size()-1)
+            else if(TileHeight[CurrentTile + NumTilesX + 1] < CurrentTile && CurrentTile + NumTilesX + 1 < TileID.size()-1 && CurrentTile + NumTilesX + 1 != PreviousTile)
             {
+                PreviousTile = CurrentTile;
                 CurrentTile += NumTilesX + 1;
 
                 TileType[CurrentTile] = "River";
 
             }
-            else if(TileHeight[CurrentTile + NumTilesX] - 1 < CurrentTile && CurrentTile + NumTilesX - 1 < TileID.size()-1)
+            else if(TileHeight[CurrentTile + NumTilesX - 1] < CurrentTile && CurrentTile + NumTilesX - 1 < TileID.size()-1 && CurrentTile + NumTilesX -1 != PreviousTile)
             {
+                PreviousTile = CurrentTile;
                 CurrentTile += NumTilesX -1;
 
                 TileType[CurrentTile] = "River";
 
             }
-            else if(TileHeight[CurrentTile - NumTilesX] < CurrentTile && CurrentTile - NumTilesX < TileID.size()-1)
+            else if(TileHeight[CurrentTile - NumTilesX] < CurrentTile && CurrentTile - NumTilesX < TileID.size()-1 && CurrentTile - NumTilesX != PreviousTile)
             {
+                
+                PreviousTile = CurrentTile;
                 CurrentTile -= NumTilesX;
 
                 TileType[CurrentTile] = "River";
 
             }
-            else if(TileHeight[CurrentTile - NumTilesX + 1] < CurrentTile && CurrentTile - NumTilesX + 1 < TileID.size()-1)
+            else if(TileHeight[CurrentTile - NumTilesX + 1] < CurrentTile && CurrentTile - NumTilesX + 1 < TileID.size()-1 && CurrentTile - NumTilesX + 1 != PreviousTile)
             {
+                
+                PreviousTile = CurrentTile;
                 CurrentTile -= NumTilesX + 1;
 
                 TileType[CurrentTile] = "River";
 
             }
-            else if(TileHeight[CurrentTile - NumTilesX - 1] < CurrentTile && CurrentTile - NumTilesX - 1< TileID.size()-1)
+            else if(TileHeight[CurrentTile - NumTilesX - 1] < CurrentTile && CurrentTile - NumTilesX - 1 < TileID.size()-1 && CurrentTile - NumTilesX -1 != PreviousTile)
             {
+                PreviousTile = CurrentTile;
                 CurrentTile -= NumTilesX - 1;
 
                 TileType[CurrentTile] = "River";
