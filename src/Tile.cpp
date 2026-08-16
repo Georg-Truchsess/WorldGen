@@ -243,9 +243,9 @@ void TileMap::DetermineBiome(uint16_t Index, SDL_Rect* T)
 
         uint16_t PreviousTile;
 
-        while(!EndOfRiver)
+        while(EndOfRiver == false)
         {
-            if(TileHeight[CurrentTile + 1] < CurrentTile && CurrentTile + 1 < TileID.size()-1 && CurrentTile + 1 != PreviousTile)
+            if(TileHeight[CurrentTile + 1] < TileHeight[CurrentTile] && CurrentTile + 1 < TileID.size()-1 && CurrentTile + 1 != PreviousTile)
             {
                 PreviousTile = CurrentTile;
                 CurrentTile += 1;
@@ -253,7 +253,7 @@ void TileMap::DetermineBiome(uint16_t Index, SDL_Rect* T)
                 TileType[CurrentTile] = "River";
 
             }
-            else if(TileHeight[CurrentTile - 1] < CurrentTile && CurrentTile - 1 < TileID.size()-1 && CurrentTile -1 != PreviousTile)
+            else if(TileHeight[CurrentTile - 1] < TileHeight[CurrentTile] && CurrentTile - 1 < TileID.size()-1 && CurrentTile -1 != PreviousTile)
             {
                 PreviousTile = CurrentTile;
                 CurrentTile -= 1;
@@ -261,7 +261,7 @@ void TileMap::DetermineBiome(uint16_t Index, SDL_Rect* T)
                 TileType[CurrentTile] = "River";
 
             }
-            else if(TileHeight[CurrentTile + NumTilesX] < CurrentTile && CurrentTile + NumTilesX < TileID.size()-1 && CurrentTile + NumTilesX != PreviousTile)
+            else if(TileHeight[CurrentTile + NumTilesX] < TileHeight[CurrentTile] && CurrentTile + NumTilesX < TileID.size()-1 && CurrentTile + NumTilesX != PreviousTile)
             {
                 PreviousTile = CurrentTile;
                 CurrentTile += NumTilesX;
@@ -269,7 +269,7 @@ void TileMap::DetermineBiome(uint16_t Index, SDL_Rect* T)
                 TileType[CurrentTile] = "River";
 
             }
-            else if(TileHeight[CurrentTile + NumTilesX + 1] < CurrentTile && CurrentTile + NumTilesX + 1 < TileID.size()-1 && CurrentTile + NumTilesX + 1 != PreviousTile)
+            else if(TileHeight[CurrentTile + NumTilesX + 1] < TileHeight[CurrentTile] && CurrentTile + NumTilesX + 1 < TileID.size()-1 && CurrentTile + NumTilesX + 1 != PreviousTile)
             {
                 PreviousTile = CurrentTile;
                 CurrentTile += NumTilesX + 1;
@@ -277,7 +277,7 @@ void TileMap::DetermineBiome(uint16_t Index, SDL_Rect* T)
                 TileType[CurrentTile] = "River";
 
             }
-            else if(TileHeight[CurrentTile + NumTilesX - 1] < CurrentTile && CurrentTile + NumTilesX - 1 < TileID.size()-1 && CurrentTile + NumTilesX -1 != PreviousTile)
+            else if(TileHeight[CurrentTile + NumTilesX - 1] < TileHeight[CurrentTile] && CurrentTile + NumTilesX - 1 < TileID.size()-1 && CurrentTile + NumTilesX -1 != PreviousTile)
             {
                 PreviousTile = CurrentTile;
                 CurrentTile += NumTilesX -1;
@@ -285,7 +285,7 @@ void TileMap::DetermineBiome(uint16_t Index, SDL_Rect* T)
                 TileType[CurrentTile] = "River";
 
             }
-            else if(TileHeight[CurrentTile - NumTilesX] < CurrentTile && CurrentTile - NumTilesX < TileID.size()-1 && CurrentTile - NumTilesX != PreviousTile)
+            else if(TileHeight[CurrentTile - NumTilesX] < TileHeight[CurrentTile] && CurrentTile - NumTilesX < TileID.size()-1 && CurrentTile - NumTilesX != PreviousTile)
             {
                 
                 PreviousTile = CurrentTile;
@@ -294,7 +294,7 @@ void TileMap::DetermineBiome(uint16_t Index, SDL_Rect* T)
                 TileType[CurrentTile] = "River";
 
             }
-            else if(TileHeight[CurrentTile - NumTilesX + 1] < CurrentTile && CurrentTile - NumTilesX + 1 < TileID.size()-1 && CurrentTile - NumTilesX + 1 != PreviousTile)
+            else if(TileHeight[CurrentTile - NumTilesX + 1] < TileHeight[CurrentTile] && CurrentTile - NumTilesX + 1 < TileID.size()-1 && CurrentTile - NumTilesX + 1 != PreviousTile)
             {
                 
                 PreviousTile = CurrentTile;
@@ -303,7 +303,7 @@ void TileMap::DetermineBiome(uint16_t Index, SDL_Rect* T)
                 TileType[CurrentTile] = "River";
 
             }
-            else if(TileHeight[CurrentTile - NumTilesX - 1] < CurrentTile && CurrentTile - NumTilesX - 1 < TileID.size()-1 && CurrentTile - NumTilesX -1 != PreviousTile)
+            else if(TileHeight[CurrentTile - NumTilesX - 1] < TileHeight[CurrentTile] && CurrentTile - NumTilesX - 1 < TileID.size()-1 && CurrentTile - NumTilesX -1 != PreviousTile)
             {
                 PreviousTile = CurrentTile;
                 CurrentTile -= NumTilesX - 1;
