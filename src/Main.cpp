@@ -18,7 +18,7 @@ int main(int argc, char* argv[])
     //RNG seeding
 std::random_device rd;
 std::mt19937 gen(rd());
- std::uniform_int_distribution<int> distrib(1, 10); 
+ std::uniform_int_distribution<int> distrib(1, 7); 
 
 int NumX = 65;
 int TableSize = NumX * NumX;
@@ -39,10 +39,10 @@ for(int i = 0; i < map.TileID.size(); i++)
 }
   for(int i = 0; i < (map.TileID.size()-1); i++)
   {
-    if(map.TileHeight[i] > 60)
+    if(map.TileHeight[i] > 35)
     {
         chance = distrib(gen);
-        if(chance = 10)
+        if(chance = 5)
         {
         map.GenerateRivers(map.TileHeight[i], NumX);
         }
@@ -50,13 +50,16 @@ for(int i = 0; i < map.TileID.size(); i++)
   }
 
   int it = 0;
+  //map.TileHeight
 for(const auto& item : map.TileHeight)
 {
     if(it < NumX)
     {
+        //std::cout << item << " ";
     std::cout<< static_cast<int>(item) << " ";
     }
     if (it > NumX){
+        
         std::cout << " " << std::endl;
         it = 0;
     }

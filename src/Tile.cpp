@@ -222,6 +222,17 @@ void TileMap::DetermineBiome(uint16_t Index, SDL_Rect* T)
 
             T -> h = 15;
         }
+        else if(TileType[Index] == "River")
+        {
+            T -> x = 25;
+
+            T -> y = 6;
+
+            T -> w = 10;
+            
+            T -> h = 15;
+
+        }
         else
         {
             T -> x = 0;
