@@ -36,6 +36,7 @@ map.TileType.reserve(map.TileID.size());
 for(int i = 0; i < map.TileID.size(); i++)
 {
     map.TileType.push_back("None");
+    map.TilePopulation.push_back(0);
 }
   for(int i = 0; i < (map.TileID.size()-1); i++)
   {

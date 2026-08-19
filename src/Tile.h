@@ -19,7 +19,7 @@ int Width;
 int Height;
 int AtlasArrayx [20] = {};
 int AtlasArrayy [20] = {};
-std::vector <uint32_t> Population{};
+std::vector <uint32_t> TilePopulation{};
 uint16_t counterx = 0;
 uint16_t countery = 0;
 std::vector<uint16_t> TileID{};
