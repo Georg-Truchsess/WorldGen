@@ -54,7 +54,7 @@ for(int i = 0; i < map.TileID.size(); i++)
     if(map.TileHeight[i] > 35)
     {
         chance = distrib(gen);
-        if(chance = 1)
+        if(chance == 1)
         {
         map.GenerateRivers(map.TileHeight[i], NumX);
         }
