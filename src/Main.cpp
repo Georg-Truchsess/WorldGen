@@ -52,30 +52,32 @@ for(int i = 0; i < map.TileID.size(); i++)
 }
   for(int i = 0; i < (map.TileID.size()-1); i++)
   {
-    if(map.TileHeight[i] > 5)
+    if(map.TileHeight[i] > 60)
     {
         chance = distrib(gen);
         if(chance == 1)
         {
-        map.GenerateRivers(map.TileHeight[i], NumX);
-        }
+        map.GenerateRivers(i, NumX);
+       }
     }
   }
 
   int it = 0;
-  
-for(const auto& item : map.TileHeight)
+  int counter = 0;
+for(const auto& item : map.TileType)
 {
+
     if(it < NumX)
     {
-        //std::cout << item << " ";
-    std::cout<< static_cast<int>(item) << " ";
+        std::cout << item << ": ";
+    std::cout<< static_cast<int>(map.TileHeight[counter]) << " ";
     }
     if (it > NumX){
         
         std::cout << " " << std::endl;
         it = 0;
     }
+    counter++;
 }
    
    

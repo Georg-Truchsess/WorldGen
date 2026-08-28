@@ -254,6 +254,7 @@ void TileMap::DetermineBiome(uint16_t Index, SDL_Rect* T)
         bool EndOfRiver = false;
 
         uint16_t PreviousTile;
+    
         // Conditions of if statements check to see if the next tile is lower in height than the current tile, they check if the next tile is not the previous tile, and they check to see if the next tile is an ocean tile
         while(EndOfRiver == false)
         {
