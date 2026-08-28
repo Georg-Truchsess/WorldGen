@@ -50,5 +50,9 @@ void DrawMap(SDL_Texture* ASCII, SDL_Renderer* render, SDL_Rect* target);
 void DetermineBiome(uint16_t Index, SDL_Rect* T);
 
 void GenerateRivers(uint16_t CurrentTile, uint16_t NumTilesX);
+
+void CalculateWaterExposure(uint16_t CurrentTile, uint16_t NumTilesX);
+
+void ExposureByRiver(uint16_t NumTilesX);
 };
 

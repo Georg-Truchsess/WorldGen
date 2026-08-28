@@ -52,7 +52,7 @@ for(int i = 0; i < map.TileID.size(); i++)
 }
   for(int i = 0; i < (map.TileID.size()-1); i++)
   {
-    if(map.TileHeight[i] > 60)
+    if(map.TileHeight[i] > 35)
     {
         chance = distrib(gen);
         if(chance == 1)

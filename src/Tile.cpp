@@ -332,3 +332,35 @@ void TileMap::DetermineBiome(uint16_t Index, SDL_Rect* T)
         }
 
     }
+
+    void TileMap::CalculateWaterExposure(uint16_t CurrentTile, uint16_t NumTilesX)
+    {
+
+        
+    }
+
+    void TileMap::ExposureByRiver( uint16_t NumTilesX)
+    {
+        for(uint16_t i = 0; i < TileID.size(); i++)
+        {
+            if(TileType[i] != "Ocean")
+            {
+                if(TileType[i + 1] == "River" || TileType[i-1] == "River")
+                {
+                    WaterExposure[i] = 100;
+                }
+                if(TileType[i + NumTilesX] == "River" || TileType[i - NumTilesX] == "River")
+                {
+                    WaterExposure[i] = 100;
+                }
+                if(TileType[i + NumTilesX - 1] == "River" || TileType[i + NumTilesX + 1] == " River")
+                {
+                    WaterExposure[i] = 100;
+                }
+                if(TileType[i - NumTilesX - 1] == "River" || TileType[i - NumTilesX + 1] == " River")
+                {
+                    WaterExposure[i] = 100;
+                }
+            }
+        }
+    }
