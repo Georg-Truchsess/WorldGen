@@ -23,7 +23,7 @@ std::mt19937 gen(rd());
 int NumX = 65;
 int TableSize = NumX * NumX;
 uint8_t chance;
-   TileMap map; //4225
+   TileMap map; 
 
   map.GenerateID(TableSize);
 
