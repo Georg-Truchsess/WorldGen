@@ -33,6 +33,7 @@ uint8_t chance;
     
   map.GenerateHeightMap(100, -100, 5, NumX, gen);
 map.TileType.reserve(map.TileID.size());
+map.TileType.reserve(map.TileID.size());
 map.TilePopulation.reserve(map.TileID.size());
 for(int i = 0; i < map.TileID.size(); i++)
 {
@@ -62,7 +63,7 @@ for(int i = 0; i < map.TileID.size(); i++)
   }
 
   int it = 0;
-  //map.TileHeight
+  
 for(const auto& item : map.TileHeight)
 {
     if(it < NumX)
