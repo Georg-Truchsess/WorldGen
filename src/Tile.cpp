@@ -336,6 +336,12 @@ void TileMap::DetermineBiome(uint16_t Index, SDL_Rect* T)
     void TileMap::CalculateWaterExposure(uint16_t CurrentTile, uint16_t NumTilesX)
     {
 
+        WaterExposure.reserve(TileID.size());
+        for(uint16_t i = 0; i < TileID.size(); i++)
+        {
+            WaterExposure.push_back(0);
+        }
+        ExposureByRiver(NumTilesX);
         
     }
 
