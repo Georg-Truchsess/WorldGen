@@ -1,6 +1,7 @@
 #include<SDL2/SDL.h>
 #include<vector>
 #include "Tile.h"
+#include "Utils.h"
 #include<iostream>
 #include<random>
 
@@ -347,26 +348,28 @@ void TileMap::DetermineBiome(uint16_t Index, SDL_Rect* T)
 
     void TileMap::ExposureByRiver( uint16_t NumTilesX)
     {
+        uint16_t RiverTile;
+        uint16_t DistanceFromRiver;
         for(uint16_t i = 0; i < TileID.size(); i++)
         {
-            if(TileType[i] != "Ocean")
+
+            if(TileType[i] == "River")
             {
-                if(TileType[i + 1] == "River" || TileType[i-1] == "River")
+                RiverTile = TileID[i];
+                for(uint16_t i = 0; i < TileID.size()-1; i++)
                 {
-                    WaterExposure[i] = 100;
-                }
-                if(TileType[i + NumTilesX] == "River" || TileType[i - NumTilesX] == "River")
-                {
-                    WaterExposure[i] = 100;
-                }
-                if(TileType[i + NumTilesX - 1] == "River" || TileType[i + NumTilesX + 1] == " River")
-                {
-                    WaterExposure[i] = 100;
-                }
-                if(TileType[i - NumTilesX - 1] == "River" || TileType[i - NumTilesX + 1] == " River")
-                {
-                    WaterExposure[i] = 100;
+                    DistanceFromRiver = Distance(TilePosy[RiverTile], TilePosx[RiverTile], TilePosy[i], TilePosy[i]);
+                    if(DistanceFromRiver <= 5)
+                    {
+                    WaterExposure[i] += ((6 - DistanceFromRiver) * 20);
+                    }
                 }
             }
+
+
+
+
+
+           
         }
     }
