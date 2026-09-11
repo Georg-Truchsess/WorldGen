@@ -5,6 +5,7 @@
 #include<vector>
 #include<iostream>
 #include<SDL2/SDL.h>
+#include"FNV1A.h"
 
 
 // struct used to store data for individual tiles
@@ -13,7 +14,13 @@ struct TileMap
 
 
 std::vector<std::string> TileType{};
-std::string TileTypes [20] = {"Plain","Ocean","Mountain","Wetland","River","Desert","Hills"};
+// Biomes
+//std::string TileTypes [20] = {"Plain","Ocean","Mountain","Wetland","River","Desert","Hills"};
+static constexpr std::string_view PlainTile = "Plain";
+static constexpr uint64_t Plain = FNV1A::hash64(PlainTile);
+
+static constexpr std::string_view RiverTile = "River";
+static constexpr uint64_t River = FNV1A::hash64(RiverTile);
 SDL_Rect Tile;
 int Width;
 int Height;
