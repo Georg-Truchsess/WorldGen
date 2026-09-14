@@ -374,3 +374,18 @@ void TileMap::DetermineBiome(uint16_t Index, SDL_Rect* T)
            
         }
     }
+
+    void TileMap::HashRuntimeStrings()
+    {
+        TileHash.reserve(TileID.size());
+        for(int i = 0; i< TileID.size(); i++)
+        {
+            TileHash.push_back(0);
+        }
+
+        for(const auto& item : TileHash)
+        {
+           TileHash[item] = FNV1A::hash64(TileType[item]);
+        }
+
+    }

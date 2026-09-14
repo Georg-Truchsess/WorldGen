@@ -14,6 +14,7 @@ struct TileMap
 
 
 std::vector<std::string> TileType{};
+std::vector<uint64_t> TileHash{};
 // Biomes
 //std::string TileTypes [20] = {"Plain","Ocean","Mountain","Wetland","River","Desert","Hills"};
 static constexpr std::string_view PlainTile = "Plain";
@@ -61,5 +62,7 @@ void GenerateRivers(uint16_t CurrentTile, uint16_t NumTilesX);
 void CalculateWaterExposure(uint16_t CurrentTile, uint16_t NumTilesX);
 
 void ExposureByRiver(uint16_t NumTilesX);
+
+void HashRuntimeStrings();
 };
 
