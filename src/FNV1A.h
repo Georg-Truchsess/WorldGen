@@ -6,7 +6,7 @@
 
 struct FNV1A
 {
-    static constexpr uint64_t FNV1A::hash64(std::string_view str) noexcept
+    static constexpr uint64_t hash64(std::string_view str) noexcept
     {
         uint64_t Hash = 0xcbf29ce484222325;
 
