@@ -353,7 +353,7 @@ void TileMap::DetermineBiome(uint16_t Index, SDL_Rect* T)
         for(uint16_t i = 0; i < TileID.size(); i++)
         {
 
-            if(TileType[i] == "River")
+            if(TileHash[i] == River)
             {
                 RiverTile = TileID[i];
                 for(uint16_t i = 0; i < TileID.size()-1; i++)

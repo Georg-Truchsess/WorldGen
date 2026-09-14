@@ -51,6 +51,7 @@ for(int i = 0; i < map.TileID.size(); i++)
         map.TileType[i] = "Ocean";
     }
 }
+    
   for(int i = 0; i < (map.TileID.size()-1); i++)
   {
     if(map.TileHeight[i] > 35)
@@ -62,6 +63,7 @@ for(int i = 0; i < map.TileID.size(); i++)
        }
     }
   }
+  map.HashRuntimeStrings();
 
   int it = 0;
   int counter = 0;
