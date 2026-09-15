@@ -375,12 +375,12 @@ void TileMap::DetermineBiome(uint16_t Index, SDL_Rect* T)
         }
     }
 
-    std::vector<uint64_t> TileMap::HashRuntimeStrings(const std::vector<std::string>& TileTypes)
+    std::vector<uint64_t> TileMap::HashRuntimeStrings(const std::vector<std::string>& TargetStrings)
     {
         std::vector<uint64_t> hashes;
 
-        hashes.reserve(TileTypes.size());
-        for(const auto& item : TileTypes)
+        hashes.reserve(TargetStrings.size());
+        for(const auto& item : TargetStrings)
         {
             hashes.push_back(FNV1A::hash64(item));
         }

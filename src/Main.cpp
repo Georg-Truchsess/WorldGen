@@ -63,7 +63,7 @@ for(int i = 0; i < map.TileID.size(); i++)
        }
     }
   }
-  map.HashRuntimeStrings();
+  map.TileHash = map.HashRuntimeStrings(map.TileType);
 
   map.CalculateWaterExposure(NumX);
   int it = 0;
