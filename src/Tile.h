@@ -22,6 +22,9 @@ static constexpr uint64_t Plain = FNV1A::hash64(PlainTile);
 
 static constexpr std::string_view RiverTile = "River";
 static constexpr uint64_t River = FNV1A::hash64(RiverTile);
+
+static constexpr std::string_view OceanTile = "Ocean";
+static constexpr uint64_t Ocean = FNV1A::hash64(OceanTile);
 SDL_Rect Tile;
 int Width;
 int Height;

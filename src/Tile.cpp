@@ -359,7 +359,7 @@ void TileMap::DetermineBiome(uint16_t Index, SDL_Rect* T)
                 for(uint16_t i = 0; i < TileID.size()-1; i++)
                 {
                     DistanceFromRiver = Distance(TilePosy[RiverTile], TilePosx[RiverTile], TilePosy[i], TilePosy[i]);
-                    if(DistanceFromRiver <= 5)
+                    if(DistanceFromRiver <= 5 && TileHash[i] != Ocean)
                     {
                         // formula to subtract 20 from added sum every tile away from river
                     WaterExposure[i] += ((6 - DistanceFromRiver) * 20);
