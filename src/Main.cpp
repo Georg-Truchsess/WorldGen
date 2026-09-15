@@ -21,7 +21,7 @@ std::random_device rd;
 std::mt19937 gen(rd());
  std::uniform_int_distribution<int> distrib(1, 7); 
 
-int NumX = 65;
+uint16_t NumX = 65;
 int TableSize = NumX * NumX;
 uint8_t chance;
    TileMap map; 
@@ -65,15 +65,16 @@ for(int i = 0; i < map.TileID.size(); i++)
   }
   map.HashRuntimeStrings();
 
+  map.CalculateWaterExposure(NumX);
   int it = 0;
   int counter = 0;
-for(const auto& item : map.TileType)
+for(const auto& item : map.WaterExposure)
 {
 
     if(it < NumX)
     {
-        std::cout << item << ": ";
-    std::cout<< static_cast<int>(map.TileHeight[counter]) << " ";
+        std::cout << static_cast<int>(map.WaterExposure[counter]) << " ";
+    //std::cout<< static_cast<int>(map.TileHeight[counter]) << " ";
     }
     if (it > NumX){
         

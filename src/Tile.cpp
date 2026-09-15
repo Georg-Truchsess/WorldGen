@@ -334,7 +334,7 @@ void TileMap::DetermineBiome(uint16_t Index, SDL_Rect* T)
 
     }
 
-    void TileMap::CalculateWaterExposure(uint16_t CurrentTile, uint16_t NumTilesX)
+    void TileMap::CalculateWaterExposure( uint16_t NumTilesX)
     {
 
         WaterExposure.reserve(TileID.size());
@@ -375,17 +375,16 @@ void TileMap::DetermineBiome(uint16_t Index, SDL_Rect* T)
         }
     }
 
-    void TileMap::HashRuntimeStrings()
+    std::vector<uint64_t> TileMap::HashRuntimeStrings(const std::vector<std::string>& TileTypes)
     {
-        TileHash.reserve(TileID.size());
-        for(int i = 0; i< TileID.size(); i++)
+        std::vector<uint64_t> hashes;
+
+        hashes.reserve(TileTypes.size());
+        for(const auto& item : TileTypes)
         {
-            TileHash.push_back(0);
+            hashes.push_back(FNV1A::hash64(item));
         }
 
-        for(const auto& item : TileHash)
-        {
-           TileHash[item] = FNV1A::hash64(TileType[item]);
-        }
+        return hashes;
 
     }

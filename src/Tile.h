@@ -59,10 +59,10 @@ void DetermineBiome(uint16_t Index, SDL_Rect* T);
 
 void GenerateRivers(uint16_t CurrentTile, uint16_t NumTilesX);
 
-void CalculateWaterExposure(uint16_t CurrentTile, uint16_t NumTilesX);
+void CalculateWaterExposure(uint16_t NumTilesX);
 
 void ExposureByRiver(uint16_t NumTilesX);
 
-void HashRuntimeStrings();
+std::vector<uint64_t> HashRuntimeStrings(const std::vector<std::string>& TileTypes);
 };
 
