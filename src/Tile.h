@@ -25,6 +25,18 @@ static constexpr uint64_t River = FNV1A::hash64(RiverTile);
 
 static constexpr std::string_view OceanTile = "Ocean";
 static constexpr uint64_t Ocean = FNV1A::hash64(OceanTile);
+
+static constexpr std::string_view MountainTile = "Mountain";
+static constexpr uint64_t Mountain = FNV1A::hash64(MountainTile);
+
+static constexpr std::string_view WetlandTile = "Wetland";
+static constexpr uint64_t Wetland =  FNV1A::hash64(WetlandTile);
+
+static constexpr std::string_view SavannaTile = "Savanna";
+static constexpr uint64_t Savanna = FNV1A::hash64(SavannaTile);
+
+static constexpr std::string_view DesertTile = "Desert";
+static constexpr uint64_t Desert = FNV1A::hash64(DesertTile);
 SDL_Rect Tile;
 int Width;
 int Height;

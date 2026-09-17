@@ -213,7 +213,7 @@ void TileMap::DrawMap(SDL_Texture* ASCII, SDL_Renderer* render, SDL_Rect* target
 void TileMap::DetermineBiome(uint16_t Index, SDL_Rect* T)
     {
 
-        if(TileHeight[Index] >= 15 && TileType[Index] != "River")
+        if(TileHeight[Index] >= 15 && TileHash[Index] != River)
             
         {
             T -> x = 15;
@@ -224,7 +224,7 @@ void TileMap::DetermineBiome(uint16_t Index, SDL_Rect* T)
 
             T -> h = 15;
         }
-        else if(TileType[Index] == "River")
+        else if(TileHash[Index] == River)
         {
             T -> x = 25;
 
@@ -359,10 +359,13 @@ void TileMap::DetermineBiome(uint16_t Index, SDL_Rect* T)
                 for(uint16_t i = 0; i < TileID.size()-1; i++)
                 {
                     DistanceFromRiver = Distance(TilePosy[RiverTile], TilePosx[RiverTile], TilePosy[i], TilePosy[i]);
-                    if(DistanceFromRiver <= 5 && TileHash[i] != Ocean)
+                    if(DistanceFromRiver <= 5 && WaterExposure[i] != 100)
                     {
+                        if ( TileHash[i] != Ocean && TileHash[i] != River )
+                        {
                         // formula to subtract 20 from added sum every tile away from river
-                    WaterExposure[i] += ((6 - DistanceFromRiver) * 20);
+                        WaterExposure[i] += ((6 - DistanceFromRiver) * 20);
+                        }
                     }
                 }
             }
