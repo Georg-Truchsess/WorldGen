@@ -246,6 +246,18 @@ void TileMap::DetermineBiome(uint16_t Index, SDL_Rect* T)
             T -> h = 1;
         }
 
+        /*
+        switch(TileHash[Index])
+        {
+            case Plain: T -> x = 15; T -> y = 6; T -> w = 10; T -> h = 15; break;
+            case River: T -> x = 25; T -> y = 6; T -> w = 10; T -> h = 15; break;
+
+            case Ocean: T -> x = 0; T -> y = 0; T -> w = 1; T -> h = 1; break;
+        
+        }        
+        
+        */
+
     }
 
     // Generates rivers from mountains

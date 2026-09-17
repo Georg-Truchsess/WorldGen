@@ -79,5 +79,7 @@ void CalculateWaterExposure(uint16_t NumTilesX);
 void ExposureByRiver(uint16_t NumTilesX);
 
 std::vector<uint64_t> HashRuntimeStrings(const std::vector<std::string>& TargetStrings);
+
+
 };
 
