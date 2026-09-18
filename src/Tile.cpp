@@ -392,14 +392,16 @@ void TileMap::DetermineBiome(uint16_t Index, SDL_Rect* T)
 
     void TileMap::GenerateWindPattern(uint16_t MapWidth)
     {
+        // One sixth of the map size
+        uint16_t Tenth = TileID.size()/10;
         // Northern winds
-        uint16_t NortherPolarEasterlies;
-        uint16_t NorthernWesterlies;
-        uint16_t NorthernTradeWinds;
+        uint16_t NortherPolarEasterlies = Tenth;
+        uint16_t NorthernWesterlies = Tenth * 3;
+        uint16_t NorthernTradeWinds = Tenth * 5;
         // Southern winds
-        uint16_t SoutherTradeWinds;
-        uint16_t SouthernWesterlies;
-        uint16_t SouthernPolarEasterlies;
+        uint16_t SoutherTradeWinds = Tenth * 7;
+        uint16_t SouthernWesterlies = Tenth * 9;
+        uint16_t SouthernPolarEasterlies = Tenth * 10;
         
         for( uint16_t i = 0; i < 6; i++)
         {
