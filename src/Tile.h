@@ -49,6 +49,7 @@ std::vector<uint16_t> TileID{};
 std::vector<uint16_t> TilePosx{};
 std::vector<uint16_t> TilePosy{};
 
+
 std::vector<int8_t> TileHeight {};
 std::vector<uint8_t> WaterExposure {};
 
@@ -77,6 +78,8 @@ void GenerateRivers(uint16_t CurrentTile, uint16_t NumTilesX);
 void CalculateWaterExposure(uint16_t NumTilesX);
 
 void ExposureByRiver(uint16_t NumTilesX);
+
+void GenerateWindPattern(uint16_t MapWidth);
 
 std::vector<uint64_t> HashRuntimeStrings(const std::vector<std::string>& TargetStrings);
 

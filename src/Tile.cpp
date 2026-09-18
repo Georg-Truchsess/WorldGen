@@ -390,6 +390,24 @@ void TileMap::DetermineBiome(uint16_t Index, SDL_Rect* T)
         }
     }
 
+    void TileMap::GenerateWindPattern(uint16_t MapWidth)
+    {
+        // Northern winds
+        uint16_t NortherPolarEasterlies;
+        uint16_t NorthernWesterlies;
+        uint16_t NorthernTradeWinds;
+        // Southern winds
+        uint16_t SoutherTradeWinds;
+        uint16_t SouthernWesterlies;
+        uint16_t SouthernPolarEasterlies;
+        
+        for( uint16_t i = 0; i < 6; i++)
+        {
+            
+        }
+
+    }
+
     std::vector<uint64_t> TileMap::HashRuntimeStrings(const std::vector<std::string>& TargetStrings)
     {
         std::vector<uint64_t> hashes;
