@@ -395,16 +395,51 @@ void TileMap::DetermineBiome(uint16_t Index, SDL_Rect* T)
         // One sixth of the map size
         uint16_t Tenth = TileID.size()/10;
         // Northern winds
-        uint16_t NortherPolarEasterlies = Tenth;
+        uint16_t NorthernPolarEasterlies = Tenth;
         uint16_t NorthernWesterlies = Tenth * 3;
         uint16_t NorthernTradeWinds = Tenth * 5;
         // Southern winds
         uint16_t SoutherTradeWinds = Tenth * 7;
         uint16_t SouthernWesterlies = Tenth * 9;
-        uint16_t SouthernPolarEasterlies = Tenth * 10;
+        uint16_t SouthernPolarEasterlies = TileID.size()-1;
+
+        uint16_t WindMoistureValue = 0;
+
+        uint16_t WindwardSide;
+
+        uint16_t PickupOverOcean = 5;
+        uint16_t LeewardSide;
         
         for( uint16_t i = 0; i < 6; i++)
         {
+            switch(i)
+            {
+                case 1: 
+                for(i = NorthernPolarEasterlies; i > 0; i--)
+                {
+                    WindwardSide = i+1;
+                    LeewardSide = i-1;
+                    // Wind picks up moisture over oceans
+                    if(TileHash[i] == Ocean)
+                    {
+                        WindMoistureValue += PickupOverOcean;
+                    }
+                    else
+                    {
+                        // Wind deposits moisture onto land
+                        WaterExposure[i] += PickupOverOcean;
+                        WindMoistureValue -= PickupOverOcean;
+                    }
+                    // Rain shadow is created if mountain is hit by wind
+                    //Windward side of mountain has all moisture deposited
+                    if(TileHeight[i] >= TileHeight[LeewardSide] + 20 && i+1 <= NorthernPolarEasterlies && i-1 > 0)
+                    {
+                        WaterExposure[WindwardSide] += WindMoistureValue;
+                        WindMoistureValue = 0;
+                    }
+                }
+                break;
+            }
             
         }
 
