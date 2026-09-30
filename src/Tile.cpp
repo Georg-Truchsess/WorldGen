@@ -355,6 +355,7 @@ void TileMap::DetermineBiome(uint16_t Index, SDL_Rect* T)
             WaterExposure.push_back(0);
         }
         ExposureByRiver(NumTilesX);
+        GenerateWindPattern(NumTilesX);
         
     }
 
@@ -399,27 +400,51 @@ void TileMap::DetermineBiome(uint16_t Index, SDL_Rect* T)
         uint16_t NorthernWesterlies = Tenth * 3;
         uint16_t NorthernTradeWinds = Tenth * 5;
         // Southern winds
-        uint16_t SoutherTradeWinds = Tenth * 7;
+        uint16_t SouthernTradeWinds = Tenth * 7;
         uint16_t SouthernWesterlies = Tenth * 9;
         uint16_t SouthernPolarEasterlies = TileID.size()-1;
 
+        
+        std::cout << NorthernPolarEasterlies<< std::endl;
+        for( uint16_t i = 0; i < 6; i++)
+        {
+        
+            switch(i)
+            {
+                
+                case 1: 
+                WestToEast(MapWidth, NorthernPolarEasterlies);
+                
+                        
+                
+                break;
+                
+            }
+            
+        }
+
+    }
+
+    void TileMap::WestToEast(uint16_t MapWidth, uint16_t WindPattern)
+    {
         uint16_t WindMoistureValue = 0;
 
         uint16_t WindwardSide;
 
         uint16_t PickupOverOcean = 5;
         uint16_t LeewardSide;
-        
-        for( uint16_t i = 0; i < 6; i++)
-        {
-            switch(i)
-            {
-                case 1: 
-                for(i = NorthernPolarEasterlies; i > 0; i--)
+        for(int i = WindPattern; i > 0; i--)
                 {
                     WindwardSide = i+1;
+                    if(i-1 > -1)
+                    {
                     LeewardSide = i-1;
+                    }
+                    else{
+                        LeewardSide = i;
+                    }
                     // Wind picks up moisture over oceans
+                    
                     if(TileHash[i] == Ocean)
                     {
                         WindMoistureValue += PickupOverOcean;
@@ -430,18 +455,16 @@ void TileMap::DetermineBiome(uint16_t Index, SDL_Rect* T)
                         WaterExposure[i] += PickupOverOcean;
                         WindMoistureValue -= PickupOverOcean;
                     }
+                        
                     // Rain shadow is created if mountain is hit by wind
                     //Windward side of mountain has all moisture deposited
-                    if(TileHeight[i] >= TileHeight[LeewardSide] + 20 && i+1 <= NorthernPolarEasterlies && i-1 > 0)
+                    
+                    if(TileHeight[i] >= TileHeight[LeewardSide])
                     {
                         WaterExposure[WindwardSide] += WindMoistureValue;
                         WindMoistureValue = 0;
                     }
                 }
-                break;
-            }
-            
-        }
 
     }
 

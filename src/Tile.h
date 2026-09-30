@@ -82,6 +82,8 @@ void ExposureByRiver(uint16_t NumTilesX);
 
 void GenerateWindPattern(uint16_t MapWidth);
 
+void WestToEast(uint16_t MapWidth, uint16_t WindPattern);
+
 std::vector<uint64_t> HashRuntimeStrings(const std::vector<std::string>& TargetStrings);
 
 
