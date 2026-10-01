@@ -414,11 +414,27 @@ void TileMap::DetermineBiome(uint16_t Index, SDL_Rect* T)
                 
                 case 1: 
                 EastToWest(MapWidth, NorthernPolarEasterlies, 0);
-                
-                        
-                
                 break;
-                
+
+                case 2:
+                WestToEast(MapWidth, NorthernWesterlies, NorthernTradeWinds);
+                break;
+
+                case 3: 
+                EastToWest(MapWidth, NorthernTradeWinds, NorthernWesterlies);
+                break;
+
+                case 4: 
+                EastToWest(MapWidth, SouthernTradeWinds, NorthernTradeWinds);
+                break; 
+
+                case 5:
+                WestToEast(MapWidth, SouthernWesterlies, SouthernPolarEasterlies);
+                break;
+
+                case 6:
+                EastToWest(MapWidth, SouthernPolarEasterlies, SouthernWesterlies);
+                break;
             }
             
         }
@@ -433,7 +449,7 @@ void TileMap::DetermineBiome(uint16_t Index, SDL_Rect* T)
 
         uint16_t WindwardSide;
 
-        uint16_t PickupOverOcean = 5;
+        uint16_t PickupOverOcean = 10;
         uint16_t LeewardSide;
         for(int i = WindPattern; i > PreviousPattern; i--)
                 {
@@ -476,9 +492,9 @@ void TileMap::DetermineBiome(uint16_t Index, SDL_Rect* T)
 
         uint16_t WindwardSide;
 
-        uint16_t PickupOverOcean = 5;
+        uint16_t PickupOverOcean = 10;
         uint16_t LeewardSide;
-        for(int i = WindPattern; i > NextPattern; i--)
+        for(int i = WindPattern; i < NextPattern; i++)
                 {
                     WindwardSide = i+1;
                     if(i-1 > -1)
