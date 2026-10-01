@@ -413,7 +413,7 @@ void TileMap::DetermineBiome(uint16_t Index, SDL_Rect* T)
             {
                 
                 case 1: 
-                WestToEast(MapWidth, NorthernPolarEasterlies);
+                WestToEast(MapWidth, NorthernPolarEasterlies, 0);
                 
                         
                 
@@ -425,7 +425,9 @@ void TileMap::DetermineBiome(uint16_t Index, SDL_Rect* T)
 
     }
 
-    void TileMap::WestToEast(uint16_t MapWidth, uint16_t WindPattern)
+    // Simulates a wind pattern going from East to West
+    // Stops when entering tile under another pattern
+    void TileMap::WestToEast(uint16_t MapWidth, uint16_t WindPattern, uint16_t PreviousPattern)
     {
         uint16_t WindMoistureValue = 0;
 
@@ -433,7 +435,7 @@ void TileMap::DetermineBiome(uint16_t Index, SDL_Rect* T)
 
         uint16_t PickupOverOcean = 5;
         uint16_t LeewardSide;
-        for(int i = WindPattern; i > 0; i--)
+        for(int i = WindPattern; i > PreviousPattern; i--)
                 {
                     WindwardSide = i+1;
                     if(i-1 > -1)
