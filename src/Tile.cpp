@@ -123,12 +123,7 @@ switch (i)
         TileHeight[Midpoint] = Displace(TileHeight[TopLeft], TileHeight[TopRight], TileHeight[BottomLeft], TileHeight[BottomRight], Roughness,TileHeight[Midpoint] );
         TopLeft = TLH; TopRight = TRH; BottomLeft = BLH; BottomRight = BRH;
 
-       // TopLeft *= (BottomLeft/TopLeft); TopRight *= (BottomRight/TopRight);
-
-        //FindMidpoint(TopLeft, BottomRight, Midpoint);
-
-        //TileHeight[Midpoint] = Displace(TileHeight[TopLeft], TileHeight[TopRight], TileHeight[BottomLeft], TileHeight[BottomRight], Roughness,TileHeight[Midpoint] );
-        //TopLeft = TLH; TopRight = TRH; BottomLeft = BLH; BottomRight = BRH;
+    
         
     }
 }
