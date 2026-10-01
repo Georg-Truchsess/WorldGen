@@ -413,7 +413,7 @@ void TileMap::DetermineBiome(uint16_t Index, SDL_Rect* T)
             {
                 
                 case 1: 
-                WestToEast(MapWidth, NorthernPolarEasterlies, 0);
+                EastToWest(MapWidth, NorthernPolarEasterlies, 0);
                 
                         
                 
@@ -427,7 +427,7 @@ void TileMap::DetermineBiome(uint16_t Index, SDL_Rect* T)
 
     // Simulates a wind pattern going from East to West
     // Stops when entering tile under another pattern
-    void TileMap::WestToEast(uint16_t MapWidth, uint16_t WindPattern, uint16_t PreviousPattern)
+    void TileMap::EastToWest(uint16_t MapWidth, uint16_t WindPattern, uint16_t PreviousPattern)
     {
         uint16_t WindMoistureValue = 0;
 
@@ -436,6 +436,49 @@ void TileMap::DetermineBiome(uint16_t Index, SDL_Rect* T)
         uint16_t PickupOverOcean = 5;
         uint16_t LeewardSide;
         for(int i = WindPattern; i > PreviousPattern; i--)
+                {
+                    WindwardSide = i+1;
+                    if(i-1 > -1)
+                    {
+                    LeewardSide = i-1;
+                    }
+                    else{
+                        LeewardSide = i;
+                    }
+                    // Wind picks up moisture over oceans
+                    
+                    if(TileHash[i] == Ocean)
+                    {
+                        WindMoistureValue += PickupOverOcean;
+                    }
+                    else
+                    {
+                        // Wind deposits moisture onto land
+                        WaterExposure[i] += PickupOverOcean;
+                        WindMoistureValue -= PickupOverOcean;
+                    }
+                        
+                    // Rain shadow is created if mountain is hit by wind
+                    //Windward side of mountain has all moisture deposited
+                    
+                    if(TileHeight[i] >= TileHeight[LeewardSide])
+                    {
+                        WaterExposure[WindwardSide] += WindMoistureValue;
+                        WindMoistureValue = 0;
+                    }
+                }
+
+    }
+    // SImulates wind going from West to East
+    void TileMap::WestToEast(uint16_t MapWidth, uint16_t WindPattern, uint16_t NextPattern)
+    {
+        uint16_t WindMoistureValue = 0;
+
+        uint16_t WindwardSide;
+
+        uint16_t PickupOverOcean = 5;
+        uint16_t LeewardSide;
+        for(int i = WindPattern; i > NextPattern; i--)
                 {
                     WindwardSide = i+1;
                     if(i-1 > -1)
