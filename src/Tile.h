@@ -49,11 +49,9 @@ uint16_t countery = 0;
 std::vector<uint16_t> TileID{};
 std::vector<uint16_t> TilePosx{};
 std::vector<uint16_t> TilePosy{};
-
-
 std::vector<int8_t> TileHeight {};
 std::vector<uint8_t> WaterExposure {};
-
+std::vector<int16_t> Temperature{};
 
 
 
@@ -87,6 +85,8 @@ void EastToWest(uint16_t MapWidth, uint16_t WindPattern, uint16_t PreviousPatter
 void WestToEast(uint16_t MapWidth, uint16_t WindPattern, uint16_t NextPattern);
 
 std::vector<uint64_t> HashRuntimeStrings(const std::vector<std::string>& TargetStrings);
+
+void DetermineTemperature();
 
 
 };

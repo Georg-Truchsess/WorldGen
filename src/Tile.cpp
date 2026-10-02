@@ -132,9 +132,6 @@ switch (i)
 //used to find midpoint between two values
 uint16_t TileMap::FindMidpoint(uint16_t TopLeft, uint16_t BottomRight, uint16_t Midpoint)
 {
-
-
-
     Midpoint = (BottomRight-TopLeft)/2;
 
 return Midpoint;
@@ -244,10 +241,26 @@ void TileMap::DetermineBiome(uint16_t Index, SDL_Rect* T)
         /*
         switch(TileHash[Index])
         {
-            case Plain: T -> x = 15; T -> y = 6; T -> w = 10; T -> h = 15; break;
-            case River: T -> x = 25; T -> y = 6; T -> w = 10; T -> h = 15; break;
+            case Plain: 
+            T -> x = 15; 
+            T -> y = 6; 
+            T -> w = 10; 
+            T -> h = 15;
+             break;
 
-            case Ocean: T -> x = 0; T -> y = 0; T -> w = 1; T -> h = 1; break;
+            case River: 
+            T -> x = 25;
+            T -> y = 6; 
+            T -> w = 10;
+            T -> h = 15;
+            break;
+
+            case Ocean:
+            T -> x = 0;
+            T -> y = 0; 
+            T -> w = 1;
+            T -> h = 1; 
+            break;
         
         }        
         
@@ -535,5 +548,17 @@ void TileMap::DetermineBiome(uint16_t Index, SDL_Rect* T)
         }
 
         return hashes;
+
+    }
+
+    void TileMap::DetermineTemperature()
+    {
+        Temperature.reserve(TileID.size());
+        for(int i=0; i< TileID.size(); i++)
+        {
+            Temperature.push_back(0);
+        }
+
+        
 
     }
