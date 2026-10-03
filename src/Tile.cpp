@@ -161,7 +161,8 @@ void TileMap::Smooth(uint16_t Midpoint, uint16_t TopLeft, uint16_t TopRight, uin
         
         
         
-        distance =  (std::sqrt( (( TilePosx[CurrentTile]- TilePosx[Midpoint]) * ( TilePosx[CurrentTile]- TilePosx[Midpoint])) + ( (TilePosy[Midpoint] - TilePosy[CurrentTile] ) * (TilePosy[Midpoint] - TilePosy[CurrentTile] ) ) )/30);
+        distance =  Distance(TilePosx[CurrentTile], TilePosy[CurrentTile], TilePosx[Midpoint], TilePosy[Midpoint]);
+        
         scale = static_cast<int16_t>(distance)/2;
         
             if(scale > 0)
@@ -559,6 +560,6 @@ void TileMap::DetermineBiome(uint16_t Index, SDL_Rect* T)
             Temperature.push_back(0);
         }
 
-        
+
 
     }
