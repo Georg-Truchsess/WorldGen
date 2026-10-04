@@ -66,15 +66,18 @@ for(int i = 0; i < map.TileID.size(); i++)
   map.TileHash = map.HashRuntimeStrings(map.TileType);
 
   map.CalculateWaterExposure(NumX);
+
+  map.DetermineTemperature(NumX);
   int it = 0;
   int counter = 0;
+  /*
 for(const auto& item : map.WaterExposure)
 {
 
     if(it < NumX)
     {
         std::cout << static_cast<int>(map.WaterExposure[counter]) << " ";
-    //std::cout<< static_cast<int>(map.TileHeight[counter]) << " ";
+   
     }
     if (it > NumX){
         
@@ -83,7 +86,7 @@ for(const auto& item : map.WaterExposure)
     }
     counter++;
 }
-
+*/
    
    
     

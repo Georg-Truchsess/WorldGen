@@ -10,3 +10,4 @@ uint16_t Distance(uint16_t TilePosX1, uint16_t TilePosY1, uint16_t TilePosX2, ui
     return std::sqrt((X * X) + (Y * Y))/30;
 
 }
+

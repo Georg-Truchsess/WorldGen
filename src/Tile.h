@@ -86,7 +86,9 @@ void WestToEast(uint16_t MapWidth, uint16_t WindPattern, uint16_t NextPattern);
 
 std::vector<uint64_t> HashRuntimeStrings(const std::vector<std::string>& TargetStrings);
 
-void DetermineTemperature();
+void DetermineTemperature(uint16_t Mapwidth);
+
+uint16_t DistanceFromEquator(uint16_t CurrentTile, uint16_t MapWidth);
 
 
 };
