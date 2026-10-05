@@ -192,7 +192,7 @@ void TileMap::DrawMap(SDL_Texture* ASCII, SDL_Renderer* render, SDL_Rect* target
         {
             target -> x = TilePosx[i];
             target -> y = TilePosy[i];
-            DetermineBiome(i, &Tile);
+            RenderBiome(i, &Tile);
 
             SDL_RenderCopy(render, ASCII, &Tile, target);
 
@@ -203,7 +203,7 @@ void TileMap::DrawMap(SDL_Texture* ASCII, SDL_Renderer* render, SDL_Rect* target
 
     }
     
-void TileMap::DetermineBiome(uint16_t Index, SDL_Rect* T)
+void TileMap::RenderBiome(uint16_t Index, SDL_Rect* T)
     {
 
         if(TileHeight[Index] >= 15 && TileHash[Index] != River)
@@ -575,6 +575,7 @@ void TileMap::DetermineBiome(uint16_t Index, SDL_Rect* T)
         //Temperature by altitude
         for(int i = 0; i < Temperature.size()-1; i++)
         {
+            if(TileHash[i] != Ocean && TileHash[i] != River)
             Temperature[i] -= 3 * (TileHeight[i]/2);
            // std::cout << 3 * (TileHeight[i]/10) << std::endl;
 
