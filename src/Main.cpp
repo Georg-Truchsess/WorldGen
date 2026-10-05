@@ -34,7 +34,6 @@ uint8_t chance;
     
   map.GenerateHeightMap(100, -100, 5, NumX, gen);
 map.TileType.reserve(map.TileID.size());
-map.TileType.reserve(map.TileID.size());
 map.TilePopulation.reserve(map.TileID.size());
 for(int i = 0; i < map.TileID.size(); i++)
 {
@@ -70,13 +69,13 @@ for(int i = 0; i < map.TileID.size(); i++)
   map.DetermineTemperature(NumX);
   int it = 0;
   int counter = 0;
-  /*
-for(const auto& item : map.WaterExposure)
+  
+for(const auto& item : map.Temperature)
 {
 
     if(it < NumX)
     {
-        std::cout << static_cast<int>(map.WaterExposure[counter]) << " ";
+        std::cout << static_cast<int>(map.Temperature[counter]) << " ";
    
     }
     if (it > NumX){
@@ -86,7 +85,7 @@ for(const auto& item : map.WaterExposure)
     }
     counter++;
 }
-*/
+
    
    
     

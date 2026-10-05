@@ -554,6 +554,7 @@ void TileMap::DetermineBiome(uint16_t Index, SDL_Rect* T)
 
     void TileMap::DetermineTemperature(uint16_t MapWidth)
     {
+        uint16_t BaseTemp = 85;
         uint16_t Distance;
         Temperature.reserve(TileID.size());
         for(int i=0; i < TileID.size()-1; i++)
@@ -561,11 +562,21 @@ void TileMap::DetermineBiome(uint16_t Index, SDL_Rect* T)
             Temperature.push_back(0);
         }
 
+        //Temperature by distance from equator
         for(int i = 0; i < Temperature.size()-1; i ++)
         {
             
             Distance = DistanceFromEquator(i,MapWidth);
-            std::cout << Distance << std::endl;
+            Temperature[i] += BaseTemp - (Distance/2);
+            
+
+        }
+
+        //Temperature by altitude
+        for(int i = 0; i < Temperature.size()-1; i++)
+        {
+            Temperature[i] -= 3 * (TileHeight[i]/2);
+           // std::cout << 3 * (TileHeight[i]/10) << std::endl;
 
         }
 
@@ -593,14 +604,3 @@ void TileMap::DetermineBiome(uint16_t Index, SDL_Rect* T)
 
         
     }
-
-    /*
-    00000
-    00000
-    00000
-    00000
-    00000
-    
-    
-    
-    */
