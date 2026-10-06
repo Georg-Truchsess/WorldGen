@@ -67,26 +67,9 @@ for(int i = 0; i < map.TileID.size(); i++)
   map.CalculateWaterExposure(NumX);
 
   map.DetermineTemperature(NumX);
-  int it = 0;
-  int counter = 0;
   
-for(const auto& item : map.Temperature)
-{
 
-    if(it < NumX)
-    {
-        std::cout << static_cast<int>(map.Temperature[counter]) << " ";
-   
-    }
-    if (it > NumX){
-        
-        std::cout << " " << std::endl;
-        it = 0;
-    }
-    counter++;
-}
-
-   
+   PrintVector(NumX, map.TileHeight);
    
     
 

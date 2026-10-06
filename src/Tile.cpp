@@ -605,3 +605,40 @@ void TileMap::RenderBiome(uint16_t Index, SDL_Rect* T)
 
         
     }
+
+    void TileMap::DetermineBiome()
+    {
+        uint8_t Humidity;
+        uint8_t Temp;
+       
+        for(int i = 0; i < TileID.size()-1; i++)
+        {
+             if(TileHash[i] != River && TileHash[i] != Ocean)
+            {
+                if(TileHeight[i] >= 60 && TileHash[i] != River)
+                {
+                    TileType[i] = "Mountain";
+                }
+                else if(Temperature[i] >= 50 && Temperature[i] <= 85 && WaterExposure[i] >= 60 && WaterExposure[i] <= 100)
+                {   
+
+                TileType[i] = "Temperate Rainforest";
+
+                }
+                else if(Temperature[i] >= 70 && Temperature[i] <= 90 && WaterExposure[i] >= 80 )
+                {
+                    TileType[i] = "Tropical Rainforest";
+                }
+                else if(Temperature[i] >= 90 && WaterExposure[i] <= 10)
+                {
+                    TileType[i] = "Desert";
+                }
+                else if(Temperature[i] >= 70 && Temperature[i] <= 90 && WaterExposure[i] >= 10 && WaterExposure[i] <=15)
+                {
+                    TileType[i] == "Savanna";
+                }
+                
+
+            }
+        }
+    }

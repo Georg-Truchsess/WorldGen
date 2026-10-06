@@ -38,6 +38,12 @@ static constexpr uint64_t Savanna = FNV1A::hash64(SavannaTile);
 
 static constexpr std::string_view DesertTile = "Desert";
 static constexpr uint64_t Desert = FNV1A::hash64(DesertTile);
+
+static constexpr std::string_view TemperateRainforestTile = "Temperate rainforest";
+static constexpr uint64_t TemperateRainforest = FNV1A::hash64(TemperateRainforestTile);
+
+static constexpr std::string_view TropicalRainforestTile = "Tropical rainforest";
+static constexpr uint64_t TropicalRainforest = FNV1A::hash64(TropicalRainforestTile);
 SDL_Rect Tile;
 int Width;
 int Height;
@@ -89,6 +95,8 @@ std::vector<uint64_t> HashRuntimeStrings(const std::vector<std::string>& TargetS
 void DetermineTemperature(uint16_t Mapwidth);
 
 uint16_t DistanceFromEquator(uint16_t CurrentTile, uint16_t MapWidth);
+
+void DetermineBiome();
 
 
 };
