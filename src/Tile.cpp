@@ -205,7 +205,7 @@ void TileMap::DrawMap(SDL_Texture* ASCII, SDL_Renderer* render, SDL_Rect* target
     
 void TileMap::RenderBiome(uint16_t Index, SDL_Rect* T)
     {
-
+        /*
         if(TileHeight[Index] >= 15 && TileHash[Index] != River)
             
         {
@@ -238,9 +238,32 @@ void TileMap::RenderBiome(uint16_t Index, SDL_Rect* T)
 
             T -> h = 1;
         }
-
-        /*
+        */
+        
         switch(TileHash[Index])
+        {
+            case Plain: 
+            T -> x = 15; 
+            T -> y = 6; 
+            T -> w = 10; 
+            T -> h = 15;
+             break;
+
+            case River: 
+            T -> x = 25;
+            T -> y = 6; 
+            T -> w = 10;
+            T -> h = 15;
+            break;
+
+            case Ocean:
+            T -> x = 0;
+            T -> y = 0; 
+            T -> w = 1;
+            T -> h = 1; 
+            break;
+        
+        }   switch(TileHash[Index])
         {
             case Plain: 
             T -> x = 15; 
@@ -265,7 +288,7 @@ void TileMap::RenderBiome(uint16_t Index, SDL_Rect* T)
         
         }        
         
-        */
+        
 
     }
 
@@ -635,7 +658,7 @@ void TileMap::RenderBiome(uint16_t Index, SDL_Rect* T)
                 }
                 else if(Temperature[i] >= 70 && Temperature[i] <= 90 && WaterExposure[i] >= 10 && WaterExposure[i] <=15)
                 {
-                    TileType[i] == "Savanna";
+                    TileType[i] = "Savanna";
                 }
                 
 

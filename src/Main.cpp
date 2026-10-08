@@ -45,8 +45,11 @@ for(int i = 0; i < map.TileID.size(); i++)
     if(map.TileHeight[i] >= 15)
     {
         map.TileType[i] = "Plain";
+
+        
     }
-    else{
+    else
+    {
         map.TileType[i] = "Ocean";
     }
 }
@@ -67,9 +70,12 @@ for(int i = 0; i < map.TileID.size(); i++)
   map.CalculateWaterExposure(NumX);
 
   map.DetermineTemperature(NumX);
-  
 
-   PrintVector(NumX, map.TileHeight);
+  map.DetermineBiome();
+  
+   map.TileHash = map.HashRuntimeStrings(map.TileType);
+
+   PrintVector(NumX, map.TileType);
    
     
 

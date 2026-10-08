@@ -19,8 +19,8 @@ for(const auto& item : vec)
     if (CurrentWidth < NumX)
     {
         
-        std::cout << static_cast<int>(vec[counter]) << " ";
-        
+        //std::cout << static_cast<int>(vec[counter]) << " ";
+        std::cout << item << " "; 
    
     }
     if (CurrentWidth > NumX)
