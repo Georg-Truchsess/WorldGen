@@ -22,6 +22,7 @@ std::mt19937 gen(rd());
  std::uniform_int_distribution<int> distrib(1, 7); 
 
 uint16_t NumX = 65;
+uint16_t SeaLevel = 15;
 int TableSize = NumX * NumX;
 uint8_t chance;
    TileMap map; 
@@ -40,9 +41,9 @@ for(int i = 0; i < map.TileID.size(); i++)
     map.TileType.push_back("None");
     map.TilePopulation.push_back(0);
 }
-for(int i = 0; i < map.TileID.size(); i++)
+for(int i = 0; i < map.TileID.size()-1; i++)
 {
-    if(map.TileHeight[i] >= 15)
+    if(map.TileHeight[i] >= SeaLevel)
     {
         map.TileType[i] = "Plain";
 

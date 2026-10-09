@@ -192,7 +192,7 @@ void TileMap::DrawMap(SDL_Texture* ASCII, SDL_Renderer* render, SDL_Rect* target
         {
             target -> x = TilePosx[i];
             target -> y = TilePosy[i];
-            RenderBiome(i, &Tile);
+            RenderBiome(i, &Tile, ASCII);
 
             SDL_RenderCopy(render, ASCII, &Tile, target);
 
@@ -203,7 +203,7 @@ void TileMap::DrawMap(SDL_Texture* ASCII, SDL_Renderer* render, SDL_Rect* target
 
     }
     
-void TileMap::RenderBiome(uint16_t Index, SDL_Rect* T)
+void TileMap::RenderBiome(uint16_t Index, SDL_Rect* T, SDL_Texture* ASCII)
     {
         /*
         if(TileHeight[Index] >= 15 && TileHash[Index] != River)
@@ -240,13 +240,15 @@ void TileMap::RenderBiome(uint16_t Index, SDL_Rect* T)
         }
         */
         
-        switch(TileHash[Index])
+          switch(TileHash[Index])
         {
             case Plain: 
             T -> x = 15; 
             T -> y = 6; 
             T -> w = 10; 
             T -> h = 15;
+
+            SDL_SetTextureColorMod(ASCII, 0, 250, 0);
              break;
 
             case River: 
@@ -254,6 +256,8 @@ void TileMap::RenderBiome(uint16_t Index, SDL_Rect* T)
             T -> y = 6; 
             T -> w = 10;
             T -> h = 15;
+
+            SDL_SetTextureColorMod(ASCII, 0, 0, 255);
             break;
 
             case Ocean:
@@ -262,30 +266,24 @@ void TileMap::RenderBiome(uint16_t Index, SDL_Rect* T)
             T -> w = 1;
             T -> h = 1; 
             break;
-        
-        }   switch(TileHash[Index])
-        {
-            case Plain: 
-            T -> x = 15; 
-            T -> y = 6; 
-            T -> w = 10; 
-            T -> h = 15;
-             break;
 
-            case River: 
-            T -> x = 25;
-            T -> y = 6; 
-            T -> w = 10;
-            T -> h = 15;
+            case Mountain:
+            T -> x = 277;
+            T -> y = 9;
+            T -> w = 8;
+            T -> h = 12;
+
+            SDL_SetTextureColorMod(ASCII, 104, 104, 104);
             break;
 
-            case Ocean:
-            T -> x = 0;
-            T -> y = 0; 
-            T -> w = 1;
-            T -> h = 1; 
+            case TemperateRainforest:
+            T -> x = 225;
+            T -> y = 7;
+            T -> w = 6;
+            T -> h = 10;
+
+            SDL_SetTextureColorMod(ASCII, 0, 150, 0);
             break;
-        
         }        
         
         
@@ -645,12 +643,12 @@ void TileMap::RenderBiome(uint16_t Index, SDL_Rect* T)
                 else if(Temperature[i] >= 50 && Temperature[i] <= 85 && WaterExposure[i] >= 60 && WaterExposure[i] <= 100)
                 {   
 
-                TileType[i] = "Temperate Rainforest";
+                TileType[i] = "Temperate rainforest";
 
                 }
                 else if(Temperature[i] >= 70 && Temperature[i] <= 90 && WaterExposure[i] >= 80 )
                 {
-                    TileType[i] = "Tropical Rainforest";
+                    TileType[i] = "Tropical rainforest";
                 }
                 else if(Temperature[i] >= 90 && WaterExposure[i] <= 10)
                 {
