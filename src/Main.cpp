@@ -21,6 +21,7 @@ std::random_device rd;
 std::mt19937 gen(rd());
  std::uniform_int_distribution<int> distrib(1, 7); 
 
+ // NumX must always be equal to (2^n) + 1
 uint16_t NumX = 65;
 uint16_t SeaLevel = 15;
 int TableSize = NumX * NumX;
@@ -76,7 +77,7 @@ for(int i = 0; i < map.TileID.size()-1; i++)
   
    map.TileHash = map.HashRuntimeStrings(map.TileType);
 
-   PrintVector(NumX, map.TileType);
+   PrintVector(NumX, map.Temperature);
    
     
 

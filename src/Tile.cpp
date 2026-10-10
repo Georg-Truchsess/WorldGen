@@ -79,6 +79,7 @@ uint16_t BottomRight = TileID.size()/2;
 int8_t Roughness;
 
 TileHeight.reserve(TileID.size());
+TileHeight.clear();
 
 for(uint16_t i = 0; i < TileID.size(); i++)
 {
@@ -126,6 +127,20 @@ switch (i)
     
         
     }
+}
+int TilesAboveSeaLevel = 0;
+int SeaLevel = 10;
+
+for(int i = 0; i < TileHeight.size(); i++)
+{
+    if(TileHeight[i] > SeaLevel)
+    {
+        TilesAboveSeaLevel++;
+    }
+}
+if(TilesAboveSeaLevel < TileHeight.size()/2)
+{
+    GenerateHeightMap(DisplacementValueMax, DisplacementValueMin, Iterations, NumTilesX, Gen);
 }
 }
 
@@ -650,11 +665,11 @@ void TileMap::RenderBiome(uint16_t Index, SDL_Rect* T, SDL_Texture* ASCII)
                 {
                     TileType[i] = "Tropical rainforest";
                 }
-                else if(Temperature[i] >= 90 && WaterExposure[i] <= 10)
+                else if(Temperature[i] >= 85 && WaterExposure[i] <= 15)
                 {
                     TileType[i] = "Desert";
                 }
-                else if(Temperature[i] >= 70 && Temperature[i] <= 90 && WaterExposure[i] >= 10 && WaterExposure[i] <=15)
+                else if(Temperature[i] >= 70 && Temperature[i] <= 90 && WaterExposure[i] >= 10 && WaterExposure[i] <=20)
                 {
                     TileType[i] = "Savanna";
                 }
