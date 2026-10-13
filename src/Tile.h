@@ -44,6 +44,9 @@ static constexpr uint64_t TemperateRainforest = FNV1A::hash64(TemperateRainfores
 
 static constexpr std::string_view TropicalRainforestTile = "Tropical rainforest";
 static constexpr uint64_t TropicalRainforest = FNV1A::hash64(TropicalRainforestTile);
+
+static constexpr std::string_view BorealRainforestTile = "Boreal rainforest";
+static constexpr uint64_t BorealRainforest = FNV1A::hash64(BorealRainforestTile);
 SDL_Rect Tile;
 int Width;
 int Height;
@@ -56,7 +59,7 @@ std::vector<uint16_t> TileID{};
 std::vector<uint16_t> TilePosx{};
 std::vector<uint16_t> TilePosy{};
 std::vector<int8_t> TileHeight {};
-std::vector<uint8_t> WaterExposure {};
+std::vector<int16_t> WaterExposure {};
 std::vector<int16_t> Temperature{};
 
 

@@ -19,13 +19,17 @@ int main(int argc, char* argv[])
     //RNG seeding
 std::random_device rd;
 std::mt19937 gen(rd());
- std::uniform_int_distribution<int> distrib(1, 7); 
+uint8_t Min = 1;
+uint8_t Max = 7;
+ std::uniform_int_distribution<int> distrib(Min, Max); 
 
  // NumX must always be equal to (2^n) + 1
+ // This makes sure that there is always a midpoint
 uint16_t NumX = 65;
 uint16_t SeaLevel = 15;
 int TableSize = NumX * NumX;
 uint8_t chance;
+uint16_t NumberofRiverTiles = 0;
    TileMap map; 
 
   map.GenerateID(TableSize);
@@ -67,7 +71,34 @@ for(int i = 0; i < map.TileID.size()-1; i++)
        }
     }
   }
+  
   map.TileHash = map.HashRuntimeStrings(map.TileType);
+  for(int i = 0; i <= map.TileID.size()-1; i++)
+  {
+    if(map.TileHash[i] == map.River)
+    {
+        NumberofRiverTiles++;
+    }
+
+  }
+    if(NumberofRiverTiles < (map.TileID.size()/20))
+    {
+        
+        std::uniform_int_distribution<int> LowlandRiverDistrib(1, 30); 
+        for(int i = 0; i < (map.TileID.size()-1); i++)
+         { 
+            if(map.TileHeight[i] < 35 && map.TileHash[i] != map.Ocean)
+            {
+                chance = LowlandRiverDistrib(gen);
+                if(chance == 1)
+                {   
+                map.GenerateRivers(i, NumX);
+                }
+                
+            }
+        }
+
+    }
 
   map.CalculateWaterExposure(NumX);
 
@@ -77,7 +108,7 @@ for(int i = 0; i < map.TileID.size()-1; i++)
   
    map.TileHash = map.HashRuntimeStrings(map.TileType);
 
-   PrintVector(NumX, map.Temperature);
+   PrintVector(NumX, map.WaterExposure);
    
     
 

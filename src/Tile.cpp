@@ -292,13 +292,32 @@ void TileMap::RenderBiome(uint16_t Index, SDL_Rect* T, SDL_Texture* ASCII)
             break;
 
             case TemperateRainforest:
-            T -> x = 225;
-            T -> y = 7;
-            T -> w = 6;
+            T -> x = 52;
+            T -> y = 11;
+            T -> w = 10;
             T -> h = 10;
 
             SDL_SetTextureColorMod(ASCII, 0, 150, 0);
             break;
+
+            case TropicalRainforest:
+
+            T -> x = 61; 
+            T -> y = 10;
+            T -> w = 10;
+            T -> h = 10;
+
+            SDL_SetTextureColorMod(ASCII, 0, 100, 0);
+            break;
+
+            case BorealRainforest:
+             T -> x = 52;
+             T -> y = 11;
+             T -> w = 10;
+             T -> h = 10;
+
+             SDL_SetTextureColorMod(ASCII, 255,126,0);
+             break;
         }        
         
         
@@ -516,7 +535,10 @@ void TileMap::RenderBiome(uint16_t Index, SDL_Rect* T, SDL_Texture* ASCII)
                     {
                         // Wind deposits moisture onto land
                         WaterExposure[i] += PickupOverOcean;
+                        if(WindMoistureValue >= 0)
+                        {
                         WindMoistureValue -= PickupOverOcean;
+                        }
                     }
                         
                     // Rain shadow is created if mountain is hit by wind
@@ -559,7 +581,10 @@ void TileMap::RenderBiome(uint16_t Index, SDL_Rect* T, SDL_Texture* ASCII)
                     {
                         // Wind deposits moisture onto land
                         WaterExposure[i] += PickupOverOcean;
+                        if(WindMoistureValue >= 0)
+                        {
                         WindMoistureValue -= PickupOverOcean;
+                        }
                     }
                         
                     // Rain shadow is created if mountain is hit by wind
@@ -655,15 +680,19 @@ void TileMap::RenderBiome(uint16_t Index, SDL_Rect* T, SDL_Texture* ASCII)
                 {
                     TileType[i] = "Mountain";
                 }
-                else if(Temperature[i] >= 50 && Temperature[i] <= 85 && WaterExposure[i] >= 60 && WaterExposure[i] <= 100)
+                else if(Temperature[i] >= 50 && Temperature[i] <= 59 && WaterExposure[i] >= 60)
                 {   
 
                 TileType[i] = "Temperate rainforest";
 
                 }
-                else if(Temperature[i] >= 70 && Temperature[i] <= 90 && WaterExposure[i] >= 80 )
+                else if(Temperature[i] >= 60 && WaterExposure[i] >= 80 )
                 {
                     TileType[i] = "Tropical rainforest";
+                }
+                else if(Temperature[i] <= 49 && WaterExposure[i] >= 60)
+                {
+                    TileType[i] = "Boreal rainforest";
                 }
                 else if(Temperature[i] >= 85 && WaterExposure[i] <= 15)
                 {
@@ -673,6 +702,7 @@ void TileMap::RenderBiome(uint16_t Index, SDL_Rect* T, SDL_Texture* ASCII)
                 {
                     TileType[i] = "Savanna";
                 }
+                
                 
 
             }
