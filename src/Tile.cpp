@@ -283,7 +283,7 @@ void TileMap::RenderBiome(uint16_t Index, SDL_Rect* T, SDL_Texture* ASCII)
              T -> w = 10;
              T -> h = 10;
 
-             SDL_SetTextureColorMod(ASCII, 0, 0, 150);
+             SDL_SetTextureColorMod(ASCII, 100, 100, 255);
             break;
 
             case Mountain:
