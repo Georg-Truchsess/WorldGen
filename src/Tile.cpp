@@ -142,6 +142,7 @@ if(TilesAboveSeaLevel < TileHeight.size()/2)
 {
     GenerateHeightMap(DisplacementValueMax, DisplacementValueMin, Iterations, NumTilesX, Gen);
 }
+    
 }
 
 //used to find midpoint between two values
@@ -276,10 +277,13 @@ void TileMap::RenderBiome(uint16_t Index, SDL_Rect* T, SDL_Texture* ASCII)
             break;
 
             case Ocean:
-            T -> x = 0;
-            T -> y = 0; 
-            T -> w = 1;
-            T -> h = 1; 
+            
+            T -> x = 214;
+             T -> y = 124;
+             T -> w = 10;
+             T -> h = 10;
+
+             SDL_SetTextureColorMod(ASCII, 0, 0, 150);
             break;
 
             case Mountain:
@@ -318,6 +322,24 @@ void TileMap::RenderBiome(uint16_t Index, SDL_Rect* T, SDL_Texture* ASCII)
 
              SDL_SetTextureColorMod(ASCII, 255,126,0);
              break;
+
+             case Desert:
+
+             T -> x = 214;
+             T -> y = 124;
+             T -> w = 10;
+             T -> h = 6;
+
+             SDL_SetTextureColorMod(ASCII, 255, 232, 124);
+
+             case Savanna:
+
+             T -> x = 25;
+             T -> y = 23;
+             T -> w = 10;
+             T -> h = 8;
+
+             SDL_SetTextureColorMod(ASCII,255, 232, 124 );
         }        
         
         
@@ -682,9 +704,7 @@ void TileMap::RenderBiome(uint16_t Index, SDL_Rect* T, SDL_Texture* ASCII)
                 }
                 else if(Temperature[i] >= 50 && Temperature[i] <= 59 && WaterExposure[i] >= 60)
                 {   
-
                 TileType[i] = "Temperate rainforest";
-
                 }
                 else if(Temperature[i] >= 60 && WaterExposure[i] >= 80 )
                 {
@@ -694,11 +714,11 @@ void TileMap::RenderBiome(uint16_t Index, SDL_Rect* T, SDL_Texture* ASCII)
                 {
                     TileType[i] = "Boreal rainforest";
                 }
-                else if(Temperature[i] >= 85 && WaterExposure[i] <= 15)
+                else if(Temperature[i] >= 70 && WaterExposure[i] <= 15)
                 {
                     TileType[i] = "Desert";
                 }
-                else if(Temperature[i] >= 70 && Temperature[i] <= 90 && WaterExposure[i] >= 10 && WaterExposure[i] <=20)
+                else if(Temperature[i] >= 60 && WaterExposure[i] >= 20 && WaterExposure[i] <=40)
                 {
                     TileType[i] = "Savanna";
                 }
