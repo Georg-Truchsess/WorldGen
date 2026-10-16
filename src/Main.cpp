@@ -108,7 +108,7 @@ for(int i = 0; i < map.TileID.size()-1; i++)
   
    map.TileHash = map.HashRuntimeStrings(map.TileType);
 
-   PrintVector(NumX, map.Temperature);
+   PrintVector(NumX, map.WaterExposure);
    
     
 

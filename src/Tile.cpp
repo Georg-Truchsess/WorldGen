@@ -340,6 +340,16 @@ void TileMap::RenderBiome(uint16_t Index, SDL_Rect* T, SDL_Texture* ASCII)
              T -> h = 8;
 
              SDL_SetTextureColorMod(ASCII,255, 232, 124 );
+             break;
+
+             case Wetland:
+
+             T -> x = 25;
+             T -> y = 23;
+             T -> w = 10;
+             T -> h = 8;
+
+             SDL_SetTextureColorMod(ASCII, 0, 255, 0 );
         }        
         
         
@@ -714,13 +724,17 @@ void TileMap::RenderBiome(uint16_t Index, SDL_Rect* T, SDL_Texture* ASCII)
                 {
                     TileType[i] = "Boreal rainforest";
                 }
-                else if(Temperature[i] >= 70 && WaterExposure[i] <= 15)
+                else if(Temperature[i] >= 60 && WaterExposure[i] <= 15)
                 {
                     TileType[i] = "Desert";
                 }
                 else if(Temperature[i] >= 60 && WaterExposure[i] >= 20 && WaterExposure[i] <=40)
                 {
                     TileType[i] = "Savanna";
+                }
+                else if(WaterExposure[i] >= 150)
+                {
+                    TileType[i] = "Wetland";
                 }
                 
                 
