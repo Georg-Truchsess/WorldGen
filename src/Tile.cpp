@@ -742,3 +742,22 @@ void TileMap::RenderBiome(uint16_t Index, SDL_Rect* T, SDL_Texture* ASCII)
             }
         }
     }
+
+    void TileMap::CalculateFertility()
+    {
+        Fertility.reserve(TileID.size());
+
+        for(int i = 0; i < TileID.size(); i++)
+        {
+            Fertility.push_back(0);
+        }
+
+        for(int i = 0; i < TileID.size()-1; i++)
+        {
+            Fertility[i] = (WaterExposure[i] / 2) + (Temperature[i]);
+            if(Fertility[i] > 500)
+            {
+                Fertility[i] = 500;
+            }
+        }
+    }

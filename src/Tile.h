@@ -61,6 +61,7 @@ std::vector<uint16_t> TilePosy{};
 std::vector<int8_t> TileHeight {};
 std::vector<int16_t> WaterExposure {};
 std::vector<int16_t> Temperature{};
+std::vector<uint16_t> Fertility{};
 
 
 
@@ -101,6 +102,6 @@ uint16_t DistanceFromEquator(uint16_t CurrentTile, uint16_t MapWidth);
 
 void DetermineBiome();
 
-
+void CalculateFertility();
 };
 
