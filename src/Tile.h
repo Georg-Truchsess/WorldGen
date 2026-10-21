@@ -47,6 +47,9 @@ static constexpr uint64_t TropicalRainforest = FNV1A::hash64(TropicalRainforestT
 
 static constexpr std::string_view BorealRainforestTile = "Boreal rainforest";
 static constexpr uint64_t BorealRainforest = FNV1A::hash64(BorealRainforestTile);
+
+static constexpr std::string_view TundraTile = "Tundra";
+static constexpr uint64_t Tundra = FNV1A::hash64(TundraTile);
 SDL_Rect Tile;
 int Width;
 int Height;
