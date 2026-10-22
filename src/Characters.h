@@ -7,9 +7,14 @@
 struct CharacterManager
 {
 std::vector<std::string> CharacterName{};
+
 std::vector<std::string> CharacterTitle{};
+
 std::vector<uint> CharacterID{};
+
 std::vector<uint16_t> CharacterAge{};
+// Current tile the character is residing in
+std::vector<int> CurrentLocation{};
 
 
 };
