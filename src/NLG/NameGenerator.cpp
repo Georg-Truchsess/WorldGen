@@ -10,7 +10,7 @@ std::string NameGenerator::GenerateName(std::mt19937 Gen)
     std::uniform_int_distribution<int> VowelOrConsenant(1,2);
     std::uniform_int_distribution<int> SyllableSizer(1,6);
     std::uniform_int_distribution<int> ConsenantClusterSize(1,4);
-    std::uniform_int_distribution<int> ConsenantSelection(0,23);
+    std::uniform_int_distribution<int> ConsenantSelection(0,20);
     std::uniform_int_distribution<int> VowelClusterSize(1,2);
     std::uniform_int_distribution<int> VowelSelection(0,4);
 
@@ -20,8 +20,10 @@ std::string NameGenerator::GenerateName(std::mt19937 Gen)
     int ClusterSize;
     int ChosenConsonant;
     int ChosenVowel;
+    /*
     for(int i = 0; i < NameLength; i++)
     {
+
         if(ChosenForm = 1)
         {
             ClusterSize = ConsenantClusterSize(Gen);
@@ -40,7 +42,24 @@ std::string NameGenerator::GenerateName(std::mt19937 Gen)
                 ChosenVowel = VowelSelection(Gen);
                 Name.push_back(Vowels[ChosenVowel]);
             }
+
+            ChosenForm = 1;
         }
+    }
+    */
+    for(int i = 0; i < NameLength; i++)
+    {
+
+        ClusterSize = ConsenantClusterSize(Gen);
+        for(int i = 0; i < ClusterSize; i++)
+        {
+            ChosenConsonant = ConsenantSelection(Gen);
+            Name.push_back(Consonants[ChosenConsonant]);
+            ChosenVowel = VowelSelection(Gen);
+            Name.push_back(Vowels[ChosenConsonant]);
+        }
+
+
     }
 
     return Name;
