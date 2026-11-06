@@ -29,6 +29,9 @@ uint8_t Max = 7;
 uint16_t NumX = 65;
 uint16_t SeaLevel = 15;
 int TableSize = NumX * NumX;
+int NumberOfYears = 10;
+int NumberOfIterations = 12 * NumberOfYears;
+int CurrentYear = 1;
 uint8_t chance;
 uint16_t NumberofRiverTiles = 0;
    TileMap map; 
@@ -154,6 +157,59 @@ std::cout << name << std::endl;
 
     SDL_Event event;
     
+    //History and actua simulation loop
+    int CurrentSeason = 0;
+    std::string TextForSeason;
+    for(int i = 0; i < NumberOfIterations; i++)
+    {
+        CurrentSeason++;
+        
+        switch(CurrentSeason){
+        case 1: TextForSeason = "Early Winter";
+        break;
+
+        case 2: TextForSeason = "Mid Winter";
+        break;
+
+        case 3: TextForSeason = "Late Winter";
+        break;
+
+        case 4: TextForSeason = "Early Spring";
+        break;
+
+        case 5: TextForSeason = "Mid Spring";
+        break;
+
+        case 6: TextForSeason = "Late Spring";
+        break;
+
+        case 7: TextForSeason = "Early Summer";
+        break;
+
+        case 8: TextForSeason = "Mid Summer";
+        break;
+
+        case 9: TextForSeason = "Late Summer";
+        break;
+
+        case 10: TextForSeason = "Early Autumn";
+        break;
+
+        case 11: TextForSeason = "Mid Autumn";
+        break;
+
+        case 12: TextForSeason = "Late Autumn";
+        break;
+        }
+
+        if(CurrentSeason > 12)
+        {
+            CurrentSeason = 0;
+            CurrentYear++;
+        }
+
+        std::cout << TextForSeason << " of the year " << CurrentYear << "\n";
+    }
 
     while(IsRunning)
     {
