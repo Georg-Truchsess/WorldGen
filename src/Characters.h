@@ -3,9 +3,13 @@
 #include <vector>
 #include <string>
 #include <cstdint>
+#include <random>
+
+#include"NLG/NameGenerator.h"
 
 struct CharacterManager
 {
+    std::mt19937 Gen;
 std::vector<std::string> CharacterGivenName{};
 std::vector<uint64_t> CharacterGivenHash{};
 
@@ -25,6 +29,7 @@ std::vector<uint16_t> CharacterAge{};
 std::vector<uint16_t> CharacterBirthSeason{};
 std::vector<char> CharacterGender{};
 
+void GenerateInitialCharacters(int NumOfCharacters, NameGenerator NameGenerator);
 
 
 

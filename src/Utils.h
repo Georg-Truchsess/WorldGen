@@ -13,6 +13,7 @@ void PrintVector(uint16_t NumX, const std::vector<T>& vec )
     int CurrentWidth = 0;
   
   int counter = 0;
+  
 for(const auto& item : vec)
 {
 

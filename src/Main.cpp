@@ -3,6 +3,7 @@
 #include "Utils.h"
 #include"FNV1A.h"
 #include"NLG/NameGenerator.h"
+#include"Characters.h"
 //std libraries
 #include<iostream>
 #include<random>
@@ -36,6 +37,8 @@ uint8_t chance;
 uint16_t NumberofRiverTiles = 0;
    TileMap map; 
    NameGenerator NameGen;
+   CharacterManager CharacterManager;
+   CharacterManager.Gen = gen;
 
   map.GenerateID(TableSize);
 
@@ -115,10 +118,14 @@ for(int i = 0; i < map.TileID.size()-1; i++)
 
    map.CalculateFertility();
 
+   CharacterManager.GenerateInitialCharacters(50, NameGen);
+
+   for(const auto& item : CharacterManager.CharacterGivenName)
+   {
+    std::cout << item << std::endl;
+   }
   // PrintVector(NumX, map.Fertility);
-   std::string name;
-    name = NameGen.GenerateName(gen);
-std::cout << name << std::endl;
+  
 
     if(SDL_Init(SDL_INIT_VIDEO) < 0)
     {
