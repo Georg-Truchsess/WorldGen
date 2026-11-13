@@ -7,10 +7,10 @@ std::string NameGenerator::GenerateName()
     std::string Name;
 
     //Uniform int distributions for selection and clustering
-     std::uniform_int_distribution<int> VowelOrConsenant(1,2);
+     std::uniform_int_distribution<int> VowelOrConsonant(1,2);
   
-    std::uniform_int_distribution<int> ConsenantClusterSize(1,2);
-    std::uniform_int_distribution<int> ConsenantSelection(0,20);
+    std::uniform_int_distribution<int> ConsonantClusterSize(1,2);
+    std::uniform_int_distribution<int> ConsonantSelection(0,20);
     std::uniform_int_distribution<int> VowelClusterSize(1,2);
     std::uniform_int_distribution<int> VowelSelection(0,4);
   std::uniform_int_distribution<int> SyllableSizer(1,6);
@@ -24,13 +24,13 @@ std::string NameGenerator::GenerateName()
     {
        
    
-    int ChosenForm = VowelOrConsenant(Gen);
+    int ChosenForm = VowelOrConsonant(Gen);
         if(ChosenForm == 1)
         {
-            ClusterSize = ConsenantClusterSize(Gen);
+            ClusterSize = ConsonantClusterSize(Gen);
                 for(int i = 0; i < ClusterSize; i++)
                 {
-                    ChosenConsonant = ConsenantSelection(Gen);
+                    ChosenConsonant = ConsonantSelection(Gen);
                      Name.push_back(Consonants[ChosenConsonant]);
                 }
             ChosenForm = 2;
