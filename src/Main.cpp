@@ -120,58 +120,13 @@ for(int i = 0; i < map.TileID.size()-1; i++)
    map.CalculateFertility();
 
    CharacterManager.GenerateInitialCharacters(50, NameGen);
-/*
+
    for(const auto& item : CharacterManager.CharacterGivenName)
    {
-    std::cout << item << std::endl;
+    std::cout << item << "\n";
    }
-    */
-   for(int i = 0; i < CharacterManager.CharacterGivenName.size()-1; i++)
-   {
-    std::cout << CharacterManager.CharacterGivenName[i] << "\n";
-   }
-   
-  // PrintVector(NumX, map.Fertility);
-  
-
-    if(SDL_Init(SDL_INIT_VIDEO) < 0)
-    {
-        std::cout << " SDL could not initialize, error:" << SDL_GetError;
-
-        return 1;
-    }
-
-    SDL_Window*  window = SDL_CreateWindow("WorldGen", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
-
-    if(window == nullptr)
-    {
-        std::cout << "Window could not be created. Error:" << SDL_GetError;
-        SDL_Quit();
-    }
-
-    SDL_Renderer* rend = SDL_CreateRenderer(window, -1,SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
-
-    SDL_Surface* surface;
-
-    surface = IMG_Load("437.png");
-    if(!surface)
-    {
-        std::cout << "image has not loaded" << std::endl; 
-        IMG_GetError();
-    }
-
-    SDL_Texture* AsciiTable = SDL_CreateTextureFromSurface(rend, surface);
-
     
-
-    
-
-    SDL_FreeSurface(surface);
-    bool IsRunning = true;
-
-    SDL_Event event;
-    
-    //History and actua simulation loop
+   //History and actua simulation loop
     int CurrentSeason = 0;
     std::string TextForSeason;
     for(int i = 0; i < NumberOfIterations; i++)
@@ -225,6 +180,48 @@ for(int i = 0; i < map.TileID.size()-1; i++)
         std::cout << TextForSeason << " of the year " << CurrentYear << "\n";
     }
 
+   
+  // PrintVector(NumX, map.Fertility);
+  
+
+    if(SDL_Init(SDL_INIT_VIDEO) < 0)
+    {
+        std::cout << " SDL could not initialize, error:" << SDL_GetError;
+
+        return 1;
+    }
+
+    SDL_Window*  window = SDL_CreateWindow("WorldGen", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
+
+    if(window == nullptr)
+    {
+        std::cout << "Window could not be created. Error:" << SDL_GetError;
+        SDL_Quit();
+    }
+
+    SDL_Renderer* rend = SDL_CreateRenderer(window, -1,SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
+
+    SDL_Surface* surface;
+
+    surface = IMG_Load("437.png");
+    if(!surface)
+    {
+        std::cout << "image has not loaded" << std::endl; 
+        IMG_GetError();
+    }
+
+    SDL_Texture* AsciiTable = SDL_CreateTextureFromSurface(rend, surface);
+
+    
+
+    
+
+    SDL_FreeSurface(surface);
+    bool IsRunning = true;
+
+    SDL_Event event;
+    
+    
     while(IsRunning)
     {
         SDL_SetRenderDrawColor(rend, 0, 0, 0,255);
