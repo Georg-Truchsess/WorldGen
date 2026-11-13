@@ -39,6 +39,7 @@ uint16_t NumberofRiverTiles = 0;
    NameGenerator NameGen;
    CharacterManager CharacterManager;
    CharacterManager.Gen = gen;
+   NameGen.Gen = gen;
 
   map.GenerateID(TableSize);
 
@@ -119,11 +120,17 @@ for(int i = 0; i < map.TileID.size()-1; i++)
    map.CalculateFertility();
 
    CharacterManager.GenerateInitialCharacters(50, NameGen);
-
+/*
    for(const auto& item : CharacterManager.CharacterGivenName)
    {
     std::cout << item << std::endl;
    }
+    */
+   for(int i = 0; i < CharacterManager.CharacterGivenName.size()-1; i++)
+   {
+    std::cout << CharacterManager.CharacterGivenName[i] << "\n";
+   }
+   
   // PrintVector(NumX, map.Fertility);
   
 

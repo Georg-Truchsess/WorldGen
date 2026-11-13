@@ -1,30 +1,31 @@
 #include "NameGenerator.h" 
 
 
-std::string NameGenerator::GenerateName(std::mt19937 Gen)
+std::string NameGenerator::GenerateName()
 {
     //Name
     std::string Name;
 
     //Uniform int distributions for selection and clustering
-    std::uniform_int_distribution<int> VowelOrConsenant(1,2);
-    std::uniform_int_distribution<int> SyllableSizer(1,6);
+     std::uniform_int_distribution<int> VowelOrConsenant(1,2);
+  
     std::uniform_int_distribution<int> ConsenantClusterSize(1,2);
     std::uniform_int_distribution<int> ConsenantSelection(0,20);
     std::uniform_int_distribution<int> VowelClusterSize(1,2);
     std::uniform_int_distribution<int> VowelSelection(0,4);
-
-
+  std::uniform_int_distribution<int> SyllableSizer(1,6);
+     
     int NameLength = SyllableSizer(Gen);
-    int ChosenForm = VowelOrConsenant(Gen);
     int ClusterSize;
     int ChosenConsonant;
     int ChosenVowel;
     
     for(int i = 0; i < NameLength; i++)
     {
-
-        if(ChosenForm = 1)
+       
+   
+    int ChosenForm = VowelOrConsenant(Gen);
+        if(ChosenForm == 1)
         {
             ClusterSize = ConsenantClusterSize(Gen);
                 for(int i = 0; i < ClusterSize; i++)
@@ -34,7 +35,7 @@ std::string NameGenerator::GenerateName(std::mt19937 Gen)
                 }
             ChosenForm = 2;
         }
-        if(ChosenForm = 2)
+        if(ChosenForm == 2)
         {
             ClusterSize = VowelClusterSize(Gen);
             for(int i = 0; i < ClusterSize; i++)
@@ -46,23 +47,6 @@ std::string NameGenerator::GenerateName(std::mt19937 Gen)
             ChosenForm = 1;
         }
     }
-    
-   /*
-    for(int i = 0; i < NameLength; i++)
-    {
-
-        ClusterSize = ConsenantClusterSize(Gen);
-        for(int i = 0; i < ClusterSize; i++)
-        {
-            ChosenConsonant = ConsenantSelection(Gen);
-            Name.push_back(Consonants[ChosenConsonant]);
-            ChosenVowel = VowelSelection(Gen);
-            Name.push_back(Vowels[ChosenConsonant]);
-        }
-
-
-    }
-        */
 
     return Name;
 }

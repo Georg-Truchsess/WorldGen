@@ -3,15 +3,9 @@
 void CharacterManager::GenerateInitialCharacters(int NumOfCharacters, NameGenerator NameGenerator)
 {
 
-for(int i = 0; i < NumOfCharacters; i++)
+for(int i = 0; i < NumOfCharacters-1; i++)
 {
-    CharacterGivenName.push_back(" ");
-
-    
-}
-
-for(int i = 0; i < NumOfCharacters; i++)
-{
-    CharacterGivenName[i] = NameGenerator.GenerateName(Gen);
+    std::string Name = NameGenerator.GenerateName();
+    CharacterGivenName.push_back(Name);
 }
 }
