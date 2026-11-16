@@ -61,6 +61,6 @@ std::string Surname;
        Surname = GenerateName();
     }
 
-
+return Surname;
 
 }

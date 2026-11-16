@@ -123,8 +123,11 @@ for(int i = 0; i < map.TileID.size()-1; i++)
 
    for(const auto& item : CharacterManager.CharacterGivenName)
    {
-    std::cout << item << "\n";
+    int index = 0;
+    std::cout << item <<  " " << CharacterManager.CharacterSurname[index] << " " << index <<"\n";
+    index++;
    }
+
     
    //History and actua simulation loop
     int CurrentSeason = 0;

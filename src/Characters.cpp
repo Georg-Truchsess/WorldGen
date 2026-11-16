@@ -6,6 +6,9 @@ void CharacterManager::GenerateInitialCharacters(int NumOfCharacters, NameGenera
 for(int i = 0; i < NumOfCharacters-1; i++)
 {
     std::string Name = NameGenerator.GenerateName();
+    std::string Surname = NameGenerator.DetermineSurname();
     CharacterGivenName.push_back(Name);
+    CharacterSurname.push_back(Surname);
+
 }
 }
