@@ -120,11 +120,11 @@ for(int i = 0; i < map.TileID.size()-1; i++)
    map.CalculateFertility();
 
    CharacterManager.GenerateInitialCharacters(50, NameGen);
-
+ int index = 0;
    for(const auto& item : CharacterManager.CharacterGivenName)
    {
-    int index = 0;
-    std::cout << item <<  " " << CharacterManager.CharacterSurname[index] << " " << index <<"\n";
+   
+    std::cout << item <<  " " << CharacterManager.CharacterSurname[index] << "\n";
     index++;
    }
 
