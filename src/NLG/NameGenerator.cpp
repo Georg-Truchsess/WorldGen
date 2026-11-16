@@ -50,3 +50,17 @@ std::string NameGenerator::GenerateName()
 
     return Name;
 }
+
+std::string NameGenerator::DetermineSurname()
+{
+std::string Surname;
+    bool InheritSurname = false;
+
+    if(InheritSurname == false)
+    {
+       Surname = GenerateName();
+    }
+
+
+
+}

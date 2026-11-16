@@ -10,5 +10,7 @@ struct NameGenerator
  char Vowels[5] = {'a','e','i','o','u'};
 
 std::string GenerateName();
+std::string DetermineSurname();
 
 };
+
