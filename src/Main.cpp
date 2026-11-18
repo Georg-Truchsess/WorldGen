@@ -40,6 +40,7 @@ uint16_t NumberofRiverTiles = 0;
    CharacterManager CharacterManager;
    CharacterManager.Gen = gen;
    NameGen.Gen = gen;
+   CharacterManager.map = map;
 
   map.GenerateID(TableSize);
 
@@ -132,7 +133,7 @@ for(int i = 0; i < map.TileID.size()-1; i++)
    //History and actua simulation loop
     int CurrentSeason = 0;
     std::string TextForSeason;
-    for(int i = 0; i < NumberOfIterations; i++)
+    for(int i = 0; i <= NumberOfIterations; i++)
     {
         CurrentSeason++;
         

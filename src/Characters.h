@@ -6,10 +6,12 @@
 #include <random>
 
 #include"NLG/NameGenerator.h"
+#include"Tile.h"
 
 struct CharacterManager
 {
     std::mt19937 Gen;
+    TileMap map;
 std::vector<std::string> CharacterGivenName{};
 std::vector<uint64_t> CharacterGivenHash{};
 
@@ -30,6 +32,8 @@ std::vector<uint16_t> CharacterBirthSeason{};
 std::vector<char> CharacterGender{};
 
 void GenerateInitialCharacters(int NumOfCharacters, NameGenerator NameGenerator);
+
+uint DetermineLocation(TileMap map);
 
 
 
