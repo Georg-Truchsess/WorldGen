@@ -11,7 +11,10 @@
 struct CharacterManager
 {
     std::mt19937 Gen;
-    TileMap map;
+    TileMap& map;
+
+    CharacterManager(TileMap& map) : map(map){}
+
 std::vector<std::string> CharacterGivenName{};
 std::vector<uint64_t> CharacterGivenHash{};
 
@@ -33,7 +36,7 @@ std::vector<char> CharacterGender{};
 
 void GenerateInitialCharacters(int NumOfCharacters, NameGenerator NameGenerator);
 
-uint DetermineLocation(TileMap map);
+uint DetermineLocation();
 
 
 

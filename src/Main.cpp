@@ -37,10 +37,10 @@ uint8_t chance;
 uint16_t NumberofRiverTiles = 0;
    TileMap map; 
    NameGenerator NameGen;
-   CharacterManager CharacterManager;
+   CharacterManager CharacterManager(map);
    CharacterManager.Gen = gen;
    NameGen.Gen = gen;
-   CharacterManager.map = map;
+   
 
   map.GenerateID(TableSize);
 
@@ -121,6 +121,7 @@ for(int i = 0; i < map.TileID.size()-1; i++)
    map.CalculateFertility();
 
    CharacterManager.GenerateInitialCharacters(50, NameGen);
+
  int index = 0;
    for(const auto& item : CharacterManager.CharacterGivenName)
    {

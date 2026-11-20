@@ -2,34 +2,37 @@
 
 void CharacterManager::GenerateInitialCharacters(int NumOfCharacters, NameGenerator NameGenerator)
 {
-
+    
+CharacterGivenName.resize(50);
+CharacterSurname.resize(50);
+CurrentLocation.resize(50);
 for(int i = 0; i < NumOfCharacters-1; i++)
 {
     std::string Name = NameGenerator.GenerateName();
     std::string Surname = NameGenerator.DetermineSurname();
-    uint Location = DetermineLocation(map);
-    CharacterGivenName.push_back(Name);
-    CharacterSurname.push_back(Surname);
-    CurrentLocation.push_back(Location);
+    uint Location = DetermineLocation();
+    CharacterGivenName[i] = Name;
+    CharacterSurname[i] = Surname;
+    CurrentLocation[i] = Location;
 
 }
 }
 
-uint CharacterManager::DetermineLocation(TileMap map)
+uint CharacterManager::DetermineLocation()
 {
     uint Location;
 
-std::uniform_int_distribution<int> DeterminedTile(0,map.TileID.size()-1);
+std::uniform_int_distribution<uint> DeterminedTile(0,map.TileID.size()-1);
 
 Location = DeterminedTile(Gen);
 
-if(map.TileHash[Location] == map.River || map.TileHash[Location] == map.Ocean)
+if(map.TileHash[5] == map.River || map.TileHash[5] == map.Ocean)
 {
-    DetermineLocation(map);
+   Location = DetermineLocation();
+   
 }
-else
-{
+
     return Location;
-}
+
 
 }
